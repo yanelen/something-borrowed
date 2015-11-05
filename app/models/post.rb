@@ -1,3 +1,3 @@
 class Post < ActiveRecord::Base
-  belongs_to :owner_id
+  belongs_to :user
 end
