@@ -20,6 +20,10 @@
    box-sizing: border-box;
  }
 
+body {
+  background-color: #ededed;
+}
+
  .btn {
    background-color: #23accf;
    color: white;
@@ -33,15 +37,13 @@
  }
 
  .jumbotron {
-  border-bottom: 1px solid #e5e5e5;
   text-align: center;
   padding: 20px 24px;
-  opacity: 0.95;
 }
 
 @media (min-width: 768px) {
   .container {
-    max-width: 500px;
+    max-width: 550px;
   }
 }
 
@@ -59,4 +61,21 @@
 .logo {
   display: block;
   padding-bottom: 30px;
+}
+
+.tea {
+  display: inline-block;
+  margin-top: -60px;
+}
+
+.pencil {
+  display: inline-block;
+  margin-top: -60px;
+  padding-left: 70px;
+}
+
+@media (max-width: 640px) {
+  .pencil {
+    margin-top: 0;
+  }
 }
