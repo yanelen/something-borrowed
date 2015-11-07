@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   root 'application#welcome'
 
+  get '/testangular' => 'application#testangular'
+  get '/signup' => 'users#signup'
+
+  post '/users' => 'users#create'
+
+  get '/session' => 'session#current_sinner', defaults: { format: :json }
+  post '/session' => 'session#create'
+  delete '/session' => 'session#destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
