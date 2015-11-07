@@ -49,9 +49,14 @@
   display: block;
   color: grey;
   padding-top: 8px;
+  color: #23accf;
 }
 
 .link:hover {
-  text-decoration: none;
-  color: #2797b0;
+  color: #23accf;
+}
+
+.logo {
+  display: block;
+  padding-bottom: 30px;
 }
