@@ -31,3 +31,27 @@
    background-color: #2797b0;
    color: white;
  }
+
+ .jumbotron {
+  border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 20px 24px;
+  opacity: 0.95;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 500px;
+  }
+}
+
+.link {
+  display: block;
+  color: grey;
+  padding-top: 8px;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: #2797b0;
+}
