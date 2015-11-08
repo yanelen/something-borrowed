@@ -7,8 +7,17 @@
   <%= javascript_include_tag 'angular', 'ie-emulation-modes-warning', 'ie10-viewport-bug-workaround', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<h1> this is a test </h1>
+<body ng-controller="MainController as mainCtrl">
+
+<header>
+	<!--This is a logo placeholder -->
+	<h1>logo</h1>
+	<!-- This is the welcome, user message -->
+	<p>Welcome, <em>{{mainCtrl.currentUser}}</em></p>
+	<!-- This is a log out button -->
+	<button ng-click="mainCtrl.logOut()">log out</button>
+</header>
+
 <%= yield %>
 
 </body>

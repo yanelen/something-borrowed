@@ -72,6 +72,16 @@ body {
   display: inline-block;
   margin-top: -60px;
   padding-left: 70px;
+  position: relative;
+  animation: pencil 2s infinite;
+}
+
+@keyframes pencil {
+    0%   {transform: rotate(7deg);}
+    25%  {transform: rotate(0deg);}
+    50%  {transform: rotate(7deg);}
+    75%  {transform: rotate(0deg);}
+    100% {transform: rotate(7deg);}
 }
 
 @media (max-width: 640px) {
