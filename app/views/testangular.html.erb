@@ -4,4 +4,80 @@
   </div>
 <% end %>
 
+<!--This is where the filters and create button will lives-->
+<nav>
+	<ul>
+		<input type="text" placeholder="search available items">
+		<li ng-click="mainCtrl.filterAs('availableItems')" id="availableItems">available items</li>
+		<li ng-click="mainCtrl.filterAs('borrowedItems')" id="borrowedItems">my borrowed items</li>
+		<li ng-click="mainCtrl.filterAs('leantItems')" id="leantItems">my leant items</li>
+		<li ng-click="mainCtrl.filterAs('listedItems')" id="listedItems">my listed items</li>
+		<li id="addItem">+ add Item</li>
+	</ul>
+</nav><!--END OF APP NAVIGATION -->
 
+<!--This form adds new listings to the DB -->
+<!--This form will show when a user clicks on the add listing-->
+<form>
+	<input type="text" placeholder="Item name">
+	<input type="text" placeholder="Item description">
+</form><!-- END OF CREATE LISTING FORM -->
+
+<!-- available items -->
+<main ng-controller="ItemController as itemCtrl">
+	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'availableItems'">
+		<div ng-show="item.available && item.user_id != mainCtrl.currentUser.user_id">
+			<h3>{{item.title}}</h3>
+			<p>{{item.description}}</p>
+			<button>borrow me</button>
+		</div>
+	</section>
+
+	<!--my borrowed items -->
+	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'borrowedItems'">
+		<div ng-show="item.borrower_id === mainCtrl.currentUser.user_id">
+			<h3>{{item.title}}</h3>
+			<p>{{item.description}}</p>
+			<button>return me</button>
+			<form>
+				<input type="text" placeholder="message to lender">
+			</form>
+			<div>
+				<p>message</p>
+				<small>sender</small>
+				<small>time stamp</small>
+			</div>
+		</div>
+	</section>
+
+	<!--my leant items -->
+	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'leantItems'">
+		<div ng-show="item.borrower_id && item.user_id === mainCtrl.currentUser.user_id">
+			<h3>{{item.title}}</h3>
+			<p>{{item.description}}</p>
+			<form>
+				<input type="text" placeholder="message to borrower">
+			</form>
+			<div>
+				<p>message</p>
+				<small>sender</small>
+				<small>time stamp</small>
+			</div>
+		</div>
+	</section>
+
+	<!--my listed items -->
+	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'listedItems'">
+		<div ng-show="item.user_id === mainCtrl.currentUser.user_id && !borrower_id">
+			<h3>my listed item title</h3>
+			<p>my listed item description</p>
+			<button>edit</button>
+			<button>delete</button>
+		</div>
+	</section>
+</main>
+
+
+<section>
+	<!--This is where google maps might appear-->
+</section>
