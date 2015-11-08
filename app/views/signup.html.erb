@@ -4,17 +4,32 @@
   </div>
 <% end %>
 
-<h1> Sign Up </h1>
-<form action="<%= users_path %>" method="POST"
-    autocomplete="false">
-  <input type="hidden" name="authenticity_token"
-    value="<%= form_authenticity_token %>">
+<div class="container">
+  <div class="jumbotron">
+    <div class="logo">
+      <%= image_tag 'logo.png' %>
+    </div>
+    <div class="form-group">
+      <form action="<%= users_path %>" method="POST"
+          autocomplete="false">
+        <input type="hidden" name="authenticity_token"
+          value="<%= form_authenticity_token %>">
 
-  <input type="username" name="user[username]"
-    placeholder="Desired Username"><br/>
-  <input type="email" name="user[email]"
-    placeholder="Your Email"><br/>
-  <input type="password" name="user[password]"
-    placeholder="Desired Password"><br/>
-  <input type="submit" value="Sign Up">
-</form>
+        <input class="form-control" type="username" name="user[username]"
+          placeholder="Username"><br/>
+        <input class="form-control" type="email" name="user[email]"
+          placeholder="Email"><br/>
+        <input class="form-control" type="password" name="user[password]"
+          placeholder="Create a password"><br/>
+        <input class="btn" type="submit" value="Sign up">
+        <a class="link" href="#">Log in</a>
+      </form>
+    </div>
+  </div>
+  <div class="tea">
+    <%= image_tag 'tea.png' %>
+  </div>
+  <div class="pencil">
+  <%= image_tag 'pencil.png' %>
+  </div>
+</div>
