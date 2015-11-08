@@ -105,7 +105,7 @@ header {
 
 .logo-s {
   display: inline-block;
-  margin: 10px 10px 10px 20px;
+  margin: 7px 7px 7px 20px;
 }
 
 .logo-s img {
@@ -120,12 +120,12 @@ header {
 .user img {
   width: 30px;
   position: relative;
-  top: -5px;
+  top: -4px;
   margin-right: 5px;
 }
 
 .nav {
-  margin: 15px 30px 0px 10px;
+  margin: 12px 30px 0px 10px;
   color: #65737d;
   float: right;
 }
