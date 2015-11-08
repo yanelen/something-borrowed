@@ -2,20 +2,25 @@
 <html ng-app="SomethingBorrowed">
 <head>
   <title>Something Borrowed|A Borrowing Marketplace</title>
-  <%= stylesheet_link_tag    'application', 'bootstrap.min', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', 'bootstrap.min', 'blog', media: 'all', 'data-turbolinks-track' => true %>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-  <%= javascript_include_tag 'angular', 'ie-emulation-modes-warning', 'ie10-viewport-bug-workaround', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'angular', 'bootstrap.min', 'ie-emulation-modes-warning', 'ie10-viewport-bug-workaround', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body ng-controller="MainController as mainCtrl">
 
 <header>
-	<!--This is a logo placeholder -->
-	<h1>logo</h1>
-	<!-- This is the welcome, user message -->
-	<p>Welcome, <em>{{mainCtrl.currentUser}}</em></p>
-	<!-- This is a log out button -->
-	<button ng-click="mainCtrl.logOut()">log out</button>
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+        <li class="user">{{mainCtrl.currentUser}}</li>
+        <li class="logout" ng-click="mainCtrl.logOut()">log out</li>
+      </ul>
+    </nav>
+    <div class="logo-s text-muted">
+      <%= image_tag 'logo.png' %>
+    </div>
+  </div>
 </header>
 
 <%= yield %>
