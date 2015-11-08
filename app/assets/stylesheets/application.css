@@ -68,25 +68,36 @@ body {
 }
 
 .tea {
-  display: inline-block;
   margin-top: -60px;
+  animation-duration: 3s;
+  animation-name: tea;
+}
+
+@keyframes tea {
+  from {
+    padding-left:100%;
+  }
+
+  to {
+    padding-left:0%;
+ }
 }
 
 .pencil {
-  display: inline-block;
-  margin-top: -60px;
-  padding-left: 70px;
-  position: relative;
-  animation: pencil 2s;
+  margin-top: -230px;
+  padding-left: 300px;
+  animation-duration: 4.5s;
+  animation-name: pencil;
 }
 
 @keyframes pencil {
-    0%   {transform: rotate(7deg);}
-    20%  {transform: rotate(0deg);}
-    40%  {transform: rotate(7deg);}
-    60%  {transform: rotate(0deg);}
-    80%  {transform: rotate(7deg);}
-    100% {transform: rotate(0deg);}
+  from {
+    padding-top:100%;
+  }
+
+  to {
+    margin-top: -230px;
+ }
 }
 
 @media (max-width: 640px) {
