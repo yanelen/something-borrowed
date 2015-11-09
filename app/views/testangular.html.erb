@@ -37,10 +37,13 @@
   <main ng-controller="ItemController as itemCtrl">
   	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'availableItems'">
   		<div ng-show="item.available && item.user_id != mainCtrl.currentUser.user_id">
-  			<h3>{{item.title}}</h3>
-  			<p>{{item.description}}</p>
-  			<button>borrow me</button>
-  		</div>
+  			<div class="title">{{item.title}}</div>
+  			<p class="description">{{item.description}}</p>
+        <div style="text-align: right">
+          <a href="#" class="btn btn-small" style="padding: 6px 16px 7px 16px; ">Borrow me</a>
+        </div>
+        <br>
+      </div>
   	</section>
 
   	<!--my borrowed items -->

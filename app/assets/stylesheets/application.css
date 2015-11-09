@@ -165,7 +165,7 @@ header {
 
 .post {
   background-color: #ffffff;
-  padding: 20px;
+  padding: 30px;
   border-radius: 10px;
 }
 
@@ -185,4 +185,20 @@ header {
   .container2 {
     width: 880px;
   }
+}
+
+.btn-small {
+  font-size: 12px;
+  padding: 5px 10px;
+  display: inline;
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #787878;
+}
+
+.description {
+  font-size: 14px;
 }
