@@ -10,6 +10,7 @@ var app = angular.module('SomethingBorrowed', ['ngAnimate']);
 app.controller('MainController', function(){
 	this.filter = "availableItems";
 	this.currentUser = currentUser;
+	this.formStatus = false;
 
 	this.filterAs = function(filter){
 		this.filter = filter;
@@ -17,6 +18,10 @@ app.controller('MainController', function(){
 
 	this.logOut = function(){
 		this.currentUser = null;
+	};
+
+	this.toggleForm = function(status){
+		this.formStatus = status;
 	};
 
 

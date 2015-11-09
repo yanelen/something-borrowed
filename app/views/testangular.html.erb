@@ -12,15 +12,20 @@
 		<li ng-click="mainCtrl.filterAs('borrowedItems')" id="borrowedItems">my borrowed items</li>
 		<li ng-click="mainCtrl.filterAs('leantItems')" id="leantItems">my leant items</li>
 		<li ng-click="mainCtrl.filterAs('listedItems')" id="listedItems">my listed items</li>
-		<li id="addItem">+ add Item</li>
+		<li ng-click="mainCtrl.toggleForm(true)" id="addItem">+ add Item</li>
 	</ul>
 </nav><!--END OF APP NAVIGATION -->
 
 <!--This form adds new listings to the DB -->
 <!--This form will show when a user clicks on the add listing-->
-<form>
-	<input type="text" placeholder="Item name">
-	<input type="text" placeholder="Item description">
+<form ng-show="mainCtrl.formStatus" style="background-color: lightgray;">
+	<small ng-click="mainCtrl.toggleForm(false)">X Close</small>
+	<h2>Add an item</h2>
+	<label>Item Name</label><br/>
+	<input type="text"><br/>
+	<label>Item Description</label><br/>
+	<textarea></textarea><br/>
+	<input type="submit">
 </form><!-- END OF CREATE LISTING FORM -->
 
 <!-- available items -->
@@ -77,7 +82,6 @@
 	</section>
 </main>
 
-
-<section>
-	<!--This is where google maps might appear-->
-</section>
+<div style="width: 100%; padding: 100px; background-color: gray; position: fixed;">
+	blah
+</div>
