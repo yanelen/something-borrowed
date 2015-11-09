@@ -69,8 +69,7 @@ body {
 
 .tea {
   margin-top: -60px;
-  animation-duration: 3s;
-  animation-name: tea;
+  animation: tea 3s;
 }
 
 @keyframes tea {
@@ -86,13 +85,12 @@ body {
 .pencil {
   margin-top: -230px;
   padding-left: 300px;
-  animation-duration: 4.5s;
-  animation-name: pencil;
+  animation: pencil 3s;
 }
 
 @keyframes pencil {
   from {
-    padding-top:100%;
+    padding-top:250%;
   }
 
   to {
