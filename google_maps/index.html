@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body { height: 400px; width: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="text/javascript">
+    window.GOOGLEMAPINFO = {}
+    function initMap() {
+      var myLatLng = {lat: 40.738688, lng: -73.993250};
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: myLatLng
+      });
+
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        draggable: true,
+      });
+
+      var infowindow = new google.maps.InfoWindow({
+        content: "HELLO"
+      });
+
+      google.maps.event.addListener(marker, 'dragend', function (evt) {
+          var lat = evt.latLng.lat().toFixed(3)
+          this.lat = lat;
+          var long = evt.latLng.lng().toFixed(3)
+          console.log(long);
+      });
+
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+    }
+
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC22ExL49DHoowHqx6gVDr3qYOCW0_BI4s&callback=initMap">
+    </script>
+  </body>
+</html>
