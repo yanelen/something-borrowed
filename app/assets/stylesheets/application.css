@@ -196,9 +196,14 @@ header {
 .title {
   font-size: 20px;
   margin-bottom: 12px;
-  color: #787878;
+  color: #a3a3a3;
 }
 
 .description {
   font-size: 14px;
+}
+
+.message {
+  font-size: 12px;
+  display: inline-block;
 }

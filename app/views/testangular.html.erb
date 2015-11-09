@@ -49,17 +49,20 @@
   	<!--my borrowed items -->
   	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'borrowedItems'">
   		<div ng-show="item.borrower_id === mainCtrl.currentUser.user_id">
-  			<h3>{{item.title}}</h3>
-  			<p>{{item.description}}</p>
-  			<button>return me</button>
-  			<form>
-  				<input type="text" placeholder="message to lender">
-  			</form>
-  			<div>
-  				<p>message</p>
+        <div class="title">{{item.title}}</div>
+        <p class="description">{{item.description}}</p>
+          <div class="user">
+            <%= image_tag 'user.png' %>
+          </div>
+      		<form class="form-group message">
+      			<input class="message form-control" type="text" placeholder="Write a message to lender...">
+      		</form>
+  				<div>message</div>
   				<small>sender</small>
   				<small>time stamp</small>
-  			</div>
+          <div style="text-align: right">
+            <a href="#" class="btn btn-small" style="padding: 6px 16px 7px 16px; ">Return me</a>
+          </div>
   		</div>
   	</section>
 
