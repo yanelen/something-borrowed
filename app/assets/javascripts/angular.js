@@ -11,14 +11,17 @@ app.controller('MainController', ['$http', function($http){
 	var mainCtrl = this;
 
 	$http.get('/session').success(function(data){
-		mainCtrl.currentUser = data.current_user.username;
+		mainCtrl.currentUser = data.current_user;
+		console.log(mainCtrl.currentUser)
 	})
 
 	mainCtrl.filter = "availableItems";
 	mainCtrl.formStatus = false;
 
 	mainCtrl.filterAs = function(filter){
+		console.log(filter)
 		mainCtrl.filter = filter;
+
 	};
 
 	mainCtrl.logOut = function(){
@@ -36,62 +39,66 @@ app.controller('MainController', ['$http', function($http){
 
 //This is the item controller which makes an AJAX call to /posts
 //getting all relevant data, which will then be filtered using angular in the view
-app.controller('ItemController', function(){
-	this.itemList = items;
+app.controller('ItemController', ['$http', function($http){
+	var itemCtrl = this;
 
-});
+	$http.get('/posts').success(function(data){
+		itemCtrl.itemList = data.posts
+	})
+
+}]);
 
 //This is a placeholder item info while we wait for routes and JSON
-var items = [
-	{
-		user_id: 1,
-		borrower_id: null,
-		title: 'bicycle',
-		description: 'brand new, 12-speed',
-		available: true
-	},
-	{
-		user_id: 2,
-		borrower_id: 1,
-		title: 'catapult',
-		description: 'can hit Russia from Alaska',
-		available: false
-	},
-	{
-		user_id: 3,
-		borrower_id: 1,
-		title: 'iron',
-		description: 'works great on t-shirts',
-		available: false
-	},
-	{
-		user_id: 1,
-		borrower_id: null,
-		title: 'ladder',
-		description: '25-foot ladder. Works great for saving cats.',
-		available: true
-	},
-	{
-		user_id: 1,
-		borrower_id: 2,
-		title: 'bicycle',
-		description: 'brand new, 12-speed',
-		available: false
-	},
-	{
-		user_id: 2,
-		borrower_id: null,
-		title: 'fan',
-		description: 'you know, like a paper fan for you face or whatever',
-		available: true
-	},
-	{
-		user_id: 3,
-		borrower_id: null,
-		title: 'air rifle',
-		description: 'great for getting rid of pesty critters',
-		available: true
-	}
-];
+// var items = [
+// 	{
+// 		user_id: 1,
+// 		borrower_id: null,
+// 		title: 'bicycle',
+// 		description: 'brand new, 12-speed',
+// 		available: true
+// 	},
+// 	{
+// 		user_id: 2,
+// 		borrower_id: 1,
+// 		title: 'catapult',
+// 		description: 'can hit Russia from Alaska',
+// 		available: false
+// 	},
+// 	{
+// 		user_id: 3,
+// 		borrower_id: 1,
+// 		title: 'iron',
+// 		description: 'works great on t-shirts',
+// 		available: false
+// 	},
+// 	{
+// 		user_id: 1,
+// 		borrower_id: null,
+// 		title: 'ladder',
+// 		description: '25-foot ladder. Works great for saving cats.',
+// 		available: true
+// 	},
+// 	{
+// 		user_id: 1,
+// 		borrower_id: 2,
+// 		title: 'bicycle',
+// 		description: 'brand new, 12-speed',
+// 		available: false
+// 	},
+// 	{
+// 		user_id: 2,
+// 		borrower_id: null,
+// 		title: 'fan',
+// 		description: 'you know, like a paper fan for you face or whatever',
+// 		available: true
+// 	},
+// 	{
+// 		user_id: 3,
+// 		borrower_id: null,
+// 		title: 'air rifle',
+// 		description: 'great for getting rid of pesty critters',
+// 		available: true
+// 	}
+// ];
 
 })();
