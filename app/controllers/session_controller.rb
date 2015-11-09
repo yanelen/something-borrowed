@@ -6,11 +6,18 @@ class SessionController < ApplicationController
 
     if user && user.authenticate(user_params[:password])
       flash[:message] = "Logged in"
+
+      token = SecureRandom.urlsafe_base64
+
+      session[:session_token] = token
+      user.update(session_token: token)
+
+      redirect_to '/testangular'
     else
       flash[:message] = "Username / Password combination does not exist!"
+      redirect_to root_path
     end
 
-    redirect_to application_home_path
   end
 
   def destroy
@@ -19,7 +26,7 @@ class SessionController < ApplicationController
     redirect_to root_path
   end
 
-  def current_user
+  def user_current
 
   end
 

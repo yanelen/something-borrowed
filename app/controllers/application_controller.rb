@@ -3,11 +3,17 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  helper_method :current_user
+
   def welcome
     render '/login'
   end
 
   def testangular
+    render '/testangular', layout: "angularlayout"
+  end
+
+  def home
     render '/testangular', layout: "angularlayout"
   end
 
@@ -30,6 +36,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_current_user
-    redirect_to  unless logged_in?
+    redirect_to root_path unless logged_in?
   end
 end
