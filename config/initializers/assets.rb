@@ -8,13 +8,5 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-<<<<<<< HEAD
-Rails.application.config.assets.precompile += %w( angular.js )
-Rails.application.config.assets.precompile += %w( bootstrap.min.css )
-Rails.application.config.assets.precompile += %w( ie-emulation-modes-warning.js )
-Rails.application.config.assets.precompile += %w( ie10-viewport-bug-workaround.js )
-Rails.application.config.assets.precompile += %w( blog.css )
-Rails.application.config.assets.precompile += %w( bootstrap.min.js )
-=======
-Rails.application.config.assets.precompile += %w( angular.js bootstrap.min.css ie-emulation-modes-warning.js ie-emulation-modes-warning.js ie10-viewport-bug-workaround.js data-turbolinks-track.js )
->>>>>>> 857154c599950d8f5256ec42ab58786b201c2940
+
+Rails.application.config.assets.precompile += %w( angular.js bootstrap.min.css ie-emulation-modes-warning.js ie-emulation-modes-warning.js ie10-viewport-bug-workaround.js data-turbolinks-track.js blog.css bootstrap.min.js  )
