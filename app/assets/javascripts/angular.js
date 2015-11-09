@@ -24,6 +24,7 @@ app.controller('MainController', function(){
 		this.formStatus = status;
 	};
 
+
 	//Once routes are set, GET request to '/session' will set MainController.currentUser = data.currentUser
 
 });
