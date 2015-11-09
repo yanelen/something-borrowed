@@ -11,8 +11,7 @@ json.posts(@posts) do |pos|
 
   json.comments(pos.comments) do |comm|
     json.id comm.id
-    json.post_id comm.post_id
     json.user_id comm.user_id
-    json.description comm.description
+    json.comment comm.comment
   end
 end
