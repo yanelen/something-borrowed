@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', 'bootstrap.min', media: 'all', 'data-turbolinks-track' => true %>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
   <%= javascript_include_tag 'angular', 'ie-emulation-modes-warning', 'ie10-viewport-bug-workaround', 'data-turbolinks-track' => true %>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-animate.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body ng-controller="MainController as mainCtrl">
@@ -13,12 +14,13 @@
 	<!--This is a logo placeholder -->
 	<h1>logo</h1>
 	<!-- This is the welcome, user message -->
-	<p>Welcome, <em>{{mainCtrl.currentUser}}</em></p>
+	<p>Welcome, <em>{{mainCtrl.currentUser.username}}</em></p>
 	<!-- This is a log out button -->
 	<button ng-click="mainCtrl.logOut()">log out</button>
 </header>
 
 <%= yield %>
+
 
 </body>
 </html>
