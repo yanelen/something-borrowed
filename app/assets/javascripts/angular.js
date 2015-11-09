@@ -3,7 +3,7 @@ TO AVOID POLLUTING THE GLOBAL SCOPE AND KEEP
  THINGS NICE AND CONTAINED **/
 
 (function(){
-var app = angular.module('SomethingBorrowed', []);
+var app = angular.module('SomethingBorrowed', ['ngAnimate']);
 
 //This is the main controller which wraps the entire application
 //providing access to the current user, and control over the view
