@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root 'application#welcome'
 
+  get 'application/home'
+
+  resources :posts, only: [:index, :create]
+
+
   get '/testangular' => 'application#testangular'
   get '/signup' => 'users#signup'
 

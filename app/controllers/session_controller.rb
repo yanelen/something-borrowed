@@ -6,11 +6,12 @@ class SessionController < ApplicationController
 
     if user && user.authenticate(user_params[:password])
       flash[:message] = "Logged in"
+      redirect_to '/testangular'
     else
       flash[:message] = "Username / Password combination does not exist!"
+      redirect_to root_path
     end
 
-    redirect_to application_home_path
   end
 
   def destroy
