@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def home
-    render '/home', layout: "angular"
+    render '/testangular', layout: "angularlayout"
   end
 
   private
@@ -36,6 +36,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_current_user
-    redirect_to '/login' unless logged_in?
+    redirect_to root_path unless logged_in?
   end
 end

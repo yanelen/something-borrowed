@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   get 'application/home'
 
-  resources :posts, only: [:index, :create]
+  resources :posts, only: [:index, :create],
+  defaults: { format: :json } do
+    resources :comments, only: [:create], shallow: true
+  end
 
 
   get '/testangular' => 'application#testangular'
@@ -11,7 +14,7 @@ Rails.application.routes.draw do
 
   post '/users' => 'users#create'
 
-  get '/session' => 'session#current_sinner', defaults: { format: :json }
+  get '/session' => 'session#user_current', defaults: { format: :json }
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
 
