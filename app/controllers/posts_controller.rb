@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :require_current_user
 
   def index
-    @posts = current_user.posts.includes(:comments)
+    @posts = Post.all.includes(:comments)
   end
 
   def create
