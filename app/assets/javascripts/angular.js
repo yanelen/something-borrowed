@@ -1,62 +1,38 @@
 /** THIS (Immediately Invoked Function Expression) IIFE STORES THE WHOLE APPLICATION
 TO AVOID POLLUTING THE GLOBAL SCOPE AND KEEP
  THINGS NICE AND CONTAINED **/
-function initMap() {
-      var myLatLng = {lat: 40.738688, lng: -73.993250};
-
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
-        center: myLatLng
-      });
-
-      var marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        draggable: true,
-      });
-
-      var infowindow = new google.maps.InfoWindow({
-        content: "HELLO"
-      });
-
-      google.maps.event.addListener(marker, 'dragend', function (evt) {
-          var lat = evt.latLng.lat().toFixed(3),
-          		lon = evt.latLng.lng().toFixed(3)
-          console.log(lon);
-          console.log(lat);
-      });
-
-      marker.addListener('click', function() {
-        infowindow.open(map, marker);
-      });
-    }
 
 (function(){
 var app = angular.module('SomethingBorrowed', ['ngAnimate']);
 
 //This is the main controller which wraps the entire application
 //providing access to the current user, and control over the view
-app.controller('MainController', function(){
-	this.filter = "availableItems";
-	this.currentUser = currentUser;
-	this.formStatus = false;
+app.controller('MainController', ['$http', function($http){
+	var mainCtrl = this;
 
-	this.filterAs = function(filter){
-		this.filter = filter;
+	$http.get('/session').success(function(data){
+		mainCtrl.currentUser = data.current_user.username;
+	})
+
+	mainCtrl.filter = "availableItems";
+	mainCtrl.formStatus = false;
+
+	mainCtrl.filterAs = function(filter){
+		mainCtrl.filter = filter;
 	};
 
-	this.logOut = function(){
-		this.currentUser = null;
+	mainCtrl.logOut = function(){
+		mainCtrl.currentUser = null;
 	};
 
-	this.toggleForm = function(status){
-		this.formStatus = status;
+	mainCtrl.toggleForm = function(status){
+		mainCtrl.formStatus = status;
 	};
 
 
 	//Once routes are set, GET request to '/session' will set MainController.currentUser = data.currentUser
 
-});
+}]);
 
 //This is the item controller which makes an AJAX call to /posts
 //getting all relevant data, which will then be filtered using angular in the view
@@ -64,12 +40,6 @@ app.controller('ItemController', function(){
 	this.itemList = items;
 
 });
-
-//This is a placeholder user info while we wait for routes and JSON
-var currentUser = {
-	username: 'ScubaSteve68',
-	user_id: 1
-};
 
 //This is a placeholder item info while we wait for routes and JSON
 var items = [
