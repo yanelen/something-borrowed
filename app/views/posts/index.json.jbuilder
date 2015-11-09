@@ -5,6 +5,9 @@ json.posts(@posts) do |pos|
   json.borrower_id pos.borrower_id
   json.title pos.title
   json.description pos.description
+  json.latitude pos.latitude
+  json.longitude pos.longitude
+  json.available pos.available
 
   json.comments(pos.comments) do |comm|
     json.id comm.id
