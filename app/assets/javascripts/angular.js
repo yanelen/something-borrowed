@@ -1,6 +1,35 @@
 /** THIS (Immediately Invoked Function Expression) IIFE STORES THE WHOLE APPLICATION
 TO AVOID POLLUTING THE GLOBAL SCOPE AND KEEP
  THINGS NICE AND CONTAINED **/
+function initMap() {
+      var myLatLng = {lat: 40.738688, lng: -73.993250};
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: myLatLng
+      });
+
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        draggable: true,
+      });
+
+      var infowindow = new google.maps.InfoWindow({
+        content: "HELLO"
+      });
+
+      google.maps.event.addListener(marker, 'dragend', function (evt) {
+          var lat = evt.latLng.lat().toFixed(3),
+          		lon = evt.latLng.lng().toFixed(3)
+          console.log(lon);
+          console.log(lat);
+      });
+
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+    }
 
 (function(){
 var app = angular.module('SomethingBorrowed', ['ngAnimate']);

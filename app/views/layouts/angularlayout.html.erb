@@ -15,7 +15,7 @@
     <nav>
       <ul class="nav nav-pills pull-right">
         <li class="user"><%= image_tag 'user.png' %></li>
-        <li class="user">{{mainCtrl.currentUser}}</li>
+        <li class="user">{{mainCtrl.currentUser.username}}</li>
         <li class="logout" ng-click="mainCtrl.logOut()">Log out</li>
       </ul>
     </nav>
@@ -27,6 +27,8 @@
 
 <%= yield %>
 
-
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC22ExL49DHoowHqx6gVDr3qYOCW0_BI4s&callback=initMap">
+  </script>
 </body>
 </html>
