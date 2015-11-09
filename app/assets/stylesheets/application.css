@@ -89,13 +89,9 @@ body {
 }
 
 @keyframes pencil {
-  from {
-    padding-top:250%;
-  }
-
-  to {
-    margin-top: -230px;
- }
+  0% {opacity: 0;}
+  60% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 @media (max-width: 640px) {
