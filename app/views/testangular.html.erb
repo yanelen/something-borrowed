@@ -5,18 +5,17 @@
 <% end %>
 
 <!--This is where the search bar, filters, and create button live-->
-<div class="search">
-  <div class="form-group">
-    <input class="form-control" type="text" placeholder="Search available items">
-  </div>
-</div>
-
 <nav class="blog-nav">
   <a ng-click="mainCtrl.filterAs('availableItems')" id="availableItems" class="blog-nav-item" href="#">Available items</a>
   <a ng-click="mainCtrl.filterAs('borrowedItems')" id="borrowedItems" class="blog-nav-item" href="#">My borrowed items</a>
   <a ng-click="mainCtrl.filterAs('leantItems')" id="leantItems" class="blog-nav-item" href="#">My lent items</a>
   <a ng-click="mainCtrl.filterAs('listedItems')" id="listedItems" class="blog-nav-item" href="#">My listed items</a>
   <a ng-click="mainCtrl.toggleForm(true)" id="addItem" class="blog-nav-item" href="#">+ Add Item</a>
+  <div class="search">
+    <div class="form-group">
+      <input class="form-control blog-nav-item" type="text" placeholder="Search">
+    </div>
+  </div>
 </nav><!--END OF APP NAVIGATION -->
 
 <div class="container post">
