@@ -14,29 +14,33 @@
  *= require_self
  */
 
- * {
-   padding: 0px;
-   margin: 0px;
-   box-sizing: border-box;
- }
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: Verdana, sans-serif;
+}
 
 body {
   background-color: #ededed;
 }
 
- .btn {
-   background-color: #23accf;
-   color: white;
-   font-size: 18px;
-   padding: 5px 20px;
- }
 
- .btn:hover {
-   background-color: #2797b0;
-   color: white;
- }
+/* Log in & Sign up */
 
- .jumbotron {
+.btn {
+  background-color: #23accf;
+  color: white;
+  font-size: 18px;
+  padding: 5px 20px;
+}
+
+.btn:hover {
+  background-color: #2797b0;
+  color: white;
+}
+
+.jumbotron {
   text-align: center;
   padding: 20px 24px;
 }
@@ -64,18 +68,75 @@ body {
 }
 
 .tea {
-  display: inline-block;
   margin-top: -60px;
+  animation: tea 3s;
+}
+
+@keyframes tea {
+  from {
+    padding-left:100%;
+  }
+
+  to {
+    padding-left:0%;
+ }
 }
 
 .pencil {
-  display: inline-block;
-  margin-top: -60px;
-  padding-left: 70px;
+  margin-top: -230px;
+  padding-left: 300px;
+  animation: pencil 3s;
+}
+
+@keyframes pencil {
+  0% {opacity: 0;}
+  60% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 @media (max-width: 640px) {
   .pencil {
     margin-top: 0;
   }
+}
+
+
+/* Header */
+
+header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #cfd2d4;
+}
+
+.logo-s {
+  display: inline-block;
+  margin: 7px 7px 7px 20px;
+}
+
+.logo-s img {
+  width: 100px;
+}
+
+.user {
+  display: inline-block;
+  font-size: 15px;
+}
+
+.user img {
+  width: 25px;
+  position: relative;
+  top: -2px;
+  margin-right: 5px;
+}
+
+.nav {
+  margin: 12px 30px 0px 10px;
+  color: #808080;
+  float: right;
+}
+
+.logout {
+  padding-left: 30px;
+  font-size: 12px;
+  top: 3px;
 }
