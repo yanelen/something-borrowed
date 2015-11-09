@@ -142,7 +142,35 @@ header {
 }
 
 
+/* Navigation */
+
+.blog-nav {
+  text-align: center;
+}
+
+.search {
+  width: 300px;
+  padding: 10px 20px 10px 20px;
+}
+
+@media (max-width: 640px) {
+  .search {
+    width: 100%;
+  }
+}
+
+
 /* Posts */
+
+.post {
+  min-width: 750px;
+}
+
+@media (max-width: 640px) {
+  .post {
+    width: 100%;
+  }
+}
 
 .posts {
   text-align: left;

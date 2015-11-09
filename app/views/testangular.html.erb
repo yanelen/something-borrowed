@@ -5,89 +5,91 @@
 <% end %>
 
 <!--This is where the search bar, filters, and create button live-->
-<input type="text" placeholder="Search available items">
+<div class="search">
+  <div class="form-group">
+    <input class="form-control" type="text" placeholder="Search available items">
+  </div>
+</div>
 
 <nav class="blog-nav">
-  <a ng-click="mainCtrl.filterAs('availableItems')" id="availableItems" class="blog-nav-item active" href="#">available items</a>
-  <a ng-click="mainCtrl.filterAs('borrowedItems')" id="borrowedItems" class="blog-nav-item" href="#">my borrowed items</a>
-  <a ng-click="mainCtrl.filterAs('leantItems')" id="leantItems" class="blog-nav-item" href="#">my leant items</a>
-  <a ng-click="mainCtrl.filterAs('listedItems')" id="listedItems" class="blog-nav-item" href="#">my listed items</a>
-  <a ng-click="mainCtrl.toggleForm(true)" id="addItem" class="blog-nav-item" href="#">+ add Item</a>
+  <a ng-click="mainCtrl.filterAs('availableItems')" id="availableItems" class="blog-nav-item" href="#">Available items</a>
+  <a ng-click="mainCtrl.filterAs('borrowedItems')" id="borrowedItems" class="blog-nav-item" href="#">My borrowed items</a>
+  <a ng-click="mainCtrl.filterAs('leantItems')" id="leantItems" class="blog-nav-item" href="#">My lent items</a>
+  <a ng-click="mainCtrl.filterAs('listedItems')" id="listedItems" class="blog-nav-item" href="#">My listed items</a>
+  <a ng-click="mainCtrl.toggleForm(true)" id="addItem" class="blog-nav-item" href="#">+ Add Item</a>
 </nav><!--END OF APP NAVIGATION -->
 
-<div class="container">
-<div class="posts">
+<div class="container post">
+  <div class="posts">
+  <!--This form adds new listings to the DB -->
+  <!--This form will show when a user clicks on the add listing-->
+  <form ng-show="mainCtrl.formStatus" style="background-color: lightgray;">
+  	<small ng-click="mainCtrl.toggleForm(false)">X Close</small>
+  	<h2>Add an item</h2>
+  	<label>Item Name</label><br/>
+  	<input type="text"><br/>
+  	<label>Item Description</label><br/>
+  	<textarea></textarea><br/>
+  	<input type="submit">
+  </form><!-- END OF CREATE LISTING FORM -->
 
+  <!-- available items -->
+  <main ng-controller="ItemController as itemCtrl">
+  	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'availableItems'">
+  		<div ng-show="item.available && item.user_id != mainCtrl.currentUser.user_id">
+  			<h3>{{item.title}}</h3>
+  			<p>{{item.description}}</p>
+  			<button>borrow me</button>
+  		</div>
+  	</section>
 
-<!--This form adds new listings to the DB -->
-<!--This form will show when a user clicks on the add listing-->
-<form ng-show="mainCtrl.formStatus" style="background-color: lightgray;">
-	<small ng-click="mainCtrl.toggleForm(false)">X Close</small>
-	<h2>Add an item</h2>
-	<label>Item Name</label><br/>
-	<input type="text"><br/>
-	<label>Item Description</label><br/>
-	<textarea></textarea><br/>
-	<input type="submit">
-</form><!-- END OF CREATE LISTING FORM -->
+  	<!--my borrowed items -->
+  	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'borrowedItems'">
+  		<div ng-show="item.borrower_id === mainCtrl.currentUser.user_id">
+  			<h3>{{item.title}}</h3>
+  			<p>{{item.description}}</p>
+  			<button>return me</button>
+  			<form>
+  				<input type="text" placeholder="message to lender">
+  			</form>
+  			<div>
+  				<p>message</p>
+  				<small>sender</small>
+  				<small>time stamp</small>
+  			</div>
+  		</div>
+  	</section>
 
-<!-- available items -->
-<main ng-controller="ItemController as itemCtrl">
-	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'availableItems'">
-		<div ng-show="item.available && item.user_id != mainCtrl.currentUser.user_id">
-			<h3>{{item.title}}</h3>
-			<p>{{item.description}}</p>
-			<button>borrow me</button>
-		</div>
-	</section>
+  	<!--my leant items -->
+  	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'leantItems'">
+  		<div ng-show="item.borrower_id && item.user_id === mainCtrl.currentUser.user_id">
+  			<h3>{{item.title}}</h3>
+  			<p>{{item.description}}</p>
+  			<form>
+  				<input type="text" placeholder="message to borrower">
+  			</form>
+  			<div>
+  				<p>message</p>
+  				<small>sender</small>
+  				<small>time stamp</small>
+  			</div>
+  		</div>
+  	</section>
 
-	<!--my borrowed items -->
-	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'borrowedItems'">
-		<div ng-show="item.borrower_id === mainCtrl.currentUser.user_id">
-			<h3>{{item.title}}</h3>
-			<p>{{item.description}}</p>
-			<button>return me</button>
-			<form>
-				<input type="text" placeholder="message to lender">
-			</form>
-			<div>
-				<p>message</p>
-				<small>sender</small>
-				<small>time stamp</small>
-			</div>
-		</div>
-	</section>
+  	<!--my listed items -->
+  	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'listedItems'">
+  		<div ng-show="item.user_id === mainCtrl.currentUser.user_id && !borrower_id">
+  			<h3>my listed item title</h3>
+  			<p>my listed item description</p>
+  			<button>edit</button>
+  			<button>delete</button>
+  		</div>
+  	</section>
+  </main>
 
-	<!--my leant items -->
-	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'leantItems'">
-		<div ng-show="item.borrower_id && item.user_id === mainCtrl.currentUser.user_id">
-			<h3>{{item.title}}</h3>
-			<p>{{item.description}}</p>
-			<form>
-				<input type="text" placeholder="message to borrower">
-			</form>
-			<div>
-				<p>message</p>
-				<small>sender</small>
-				<small>time stamp</small>
-			</div>
-		</div>
-	</section>
+  <div style="width: 100%; height: 300px; background-color: gray;">
+    blah
+  </div>
 
-	<!--my listed items -->
-	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'listedItems'">
-		<div ng-show="item.user_id === mainCtrl.currentUser.user_id && !borrower_id">
-			<h3>my listed item title</h3>
-			<p>my listed item description</p>
-			<button>edit</button>
-			<button>delete</button>
-		</div>
-	</section>
-</main>
-
-<div style="width: 100%; height: 300px; background-color: gray;">
-	blah
-</div>
-
-</div>
+  </div>
 </div>
