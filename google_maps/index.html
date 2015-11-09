@@ -2,18 +2,24 @@
 <html>
   <head>
     <style type="text/css">
-      html, body { height: 400px; width: 100%; margin: 0; padding: 0; }
-      #map { height: 100%; }
+      html, body { margin: 0; padding: 0; }
+      #map { height: 400px; width: 100%; }
+      #map-results { height: 400px; width: 100%; }
     </style>
   </head>
   <body>
     <div id="map"></div>
+    <div id="map-results"></div>
     <script type="text/javascript">
-    window.GOOGLEMAPINFO = {}
+
     function initMap() {
       var myLatLng = {lat: 40.738688, lng: -73.993250};
-
       var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: myLatLng
+      });
+
+      var map2 = new google.maps.Map(document.getElementById('map-results'), {
         zoom: 13,
         center: myLatLng
       });
@@ -24,21 +30,34 @@
         draggable: true,
       });
 
+      // function updateMapResults () {
+      //   for (var i = 0; i < results.length; i++) {
+      //     var position = {results[i].lat, results[i].lat}
+      //     var marker = new google.maps.Marker({
+      //       postion: postion,
+      //       map: map2
+      //     });
+      //   }
+      // }
+
       var infowindow = new google.maps.InfoWindow({
         content: "HELLO"
       });
-
       google.maps.event.addListener(marker, 'dragend', function (evt) {
           var lat = evt.latLng.lat().toFixed(3)
-          this.lat = lat;
           var long = evt.latLng.lng().toFixed(3)
           console.log(long);
       });
-
       marker.addListener('click', function() {
         infowindow.open(map, marker);
       });
     }
+
+var results = [
+  {},
+  {}
+]
+
 
     </script>
     <script async defer
