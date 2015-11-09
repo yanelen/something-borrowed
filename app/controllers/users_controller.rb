@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path
     else
-      @users.errors.full_messages.to_sentence
+      @user.errors.full_messages.to_sentence
       redirect_to '/signup'
     end
   end
