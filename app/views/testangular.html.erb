@@ -5,16 +5,19 @@
 <% end %>
 
 <!--This is where the search bar, filters, and create button live-->
-<nav>
-	<ul>
-		<input type="text" placeholder="search available items">
-		<li ng-click="mainCtrl.filterAs('availableItems')" id="availableItems">available items</li>
-		<li ng-click="mainCtrl.filterAs('borrowedItems')" id="borrowedItems">my borrowed items</li>
-		<li ng-click="mainCtrl.filterAs('leantItems')" id="leantItems">my leant items</li>
-		<li ng-click="mainCtrl.filterAs('listedItems')" id="listedItems">my listed items</li>
-		<li ng-click="mainCtrl.toggleForm(true)" id="addItem">+ add Item</li>
-	</ul>
+<input type="text" placeholder="Search available items">
+
+<nav class="blog-nav">
+  <a ng-click="mainCtrl.filterAs('availableItems')" id="availableItems" class="blog-nav-item active" href="#">available items</a>
+  <a ng-click="mainCtrl.filterAs('borrowedItems')" id="borrowedItems" class="blog-nav-item" href="#">my borrowed items</a>
+  <a ng-click="mainCtrl.filterAs('leantItems')" id="leantItems" class="blog-nav-item" href="#">my leant items</a>
+  <a ng-click="mainCtrl.filterAs('listedItems')" id="listedItems" class="blog-nav-item" href="#">my listed items</a>
+  <a ng-click="mainCtrl.toggleForm(true)" id="addItem" class="blog-nav-item" href="#">+ add Item</a>
 </nav><!--END OF APP NAVIGATION -->
+
+<div class="container">
+<div class="posts">
+
 
 <!--This form adds new listings to the DB -->
 <!--This form will show when a user clicks on the add listing-->
@@ -82,6 +85,9 @@
 	</section>
 </main>
 
-<div style="width: 100%; padding: 100px; background-color: gray; position: fixed;">
+<div style="width: 100%; height: 300px; background-color: gray;">
 	blah
+</div>
+
+</div>
 </div>

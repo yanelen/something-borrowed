@@ -140,3 +140,10 @@ header {
   font-size: 12px;
   top: 3px;
 }
+
+
+/* Posts */
+
+.posts {
+  text-align: left;
+}

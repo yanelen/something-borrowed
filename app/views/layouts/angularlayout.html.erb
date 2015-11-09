@@ -15,7 +15,7 @@
     <nav>
       <ul class="nav nav-pills pull-right">
         <li class="user"><%= image_tag 'user.png' %></li>
-        <li class="user">{{mainCtrl.currentUser}}</li>
+        <li class="user">{{mainCtrl.currentUser.username}}</li>
         <li class="logout" ng-click="mainCtrl.logOut()">Log out</li>
       </ul>
     </nav>
@@ -24,6 +24,7 @@
     </div>
   </div>
 </header>
+
 
 <%= yield %>
 
