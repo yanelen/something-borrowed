@@ -30,7 +30,7 @@ body {
 
 .btn {
   background-color: #23accf;
-  color: white;
+  color: #ffffff;
   font-size: 18px;
   padding: 5px 20px;
 }
@@ -154,6 +154,10 @@ header {
   display: inline-block;
 }
 
+.search div input {
+  font-size: 12px;
+}
+
 @media (max-width: 640px) {
   .search {
     width: 100%;
@@ -168,6 +172,7 @@ header {
   padding: 30px;
   border-radius: 10px;
   border: 1px solid #dfe6eb;
+  box-shadow: 1px 1px 1px #c9c9c9;
 }
 
 @media (max-width: 640px) {
@@ -202,9 +207,14 @@ header {
 }
 
 .btn-small {
+  background-color: #facd46;
   font-size: 12px;
   padding: 6px 14px 7px 14px;
   display: inline;
+}
+
+.btn-small:hover {
+  background-color: #dba92a;
 }
 
 .edit {
