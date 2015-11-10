@@ -9,10 +9,6 @@ class ApplicationController < ActionController::Base
     render '/login'
   end
 
-  def testangular
-    render '/testangular', layout: "angularlayout"
-  end
-
   def home
     render '/testangular', layout: "angularlayout"
   end

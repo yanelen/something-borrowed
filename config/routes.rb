@@ -3,13 +3,13 @@ Rails.application.routes.draw do
 
   get 'application/home'
 
-  resources :posts, only: [:index, :create],
+  resources :posts, only: [:index, :create, :update, :destroy],
   defaults: { format: :json } do
     resources :comments, only: [:create], shallow: true
   end
 
 
-  get '/testangular' => 'application#testangular'
+  get '/testangular' => 'posts#testangular'
   get '/signup' => 'users#signup'
 
   post '/users' => 'users#create'
