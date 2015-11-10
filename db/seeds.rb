@@ -66,11 +66,7 @@ posts = Post.create(
 		available: true
 	},
 	{
-<<<<<<< HEAD
-		user_id: 1,
-=======
 		user_id: 2,
->>>>>>> c7f2b09cb976ca94bf37451affe5ddada0f3b322
 		borrower_id: nil,
 		title: 'air rifle',
 		description: 'great for getting rid of pesty critters',
