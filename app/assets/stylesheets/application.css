@@ -278,7 +278,6 @@ header {
 /* Map */
 
 .map {
-  background-color: #dedede;
   background-image: url('map.jpg');
   padding: 30px;
   border-radius: 10px;
