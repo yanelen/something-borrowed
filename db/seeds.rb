@@ -6,13 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-users = User.create([{email: "casey.panzer@gmail.com", username: "cpanzer", password: 123456},{email: "casey@gmail.com", username: "sodell", password: 123456}])
+users = User.create([{email: "casey.panzer@gmail.com", username: "cpanzer", password: '123456'},{email: "casey@gmail.com", username: "sodell", password: '123456'}])
 
 posts = Post.create(
 [
 	{
 		user_id: 1,
-		borrower_id: null,
+		borrower_id: nil,
 		title: 'bicycle',
 		description: 'brand new, 12-speed',
     latitude: 40.738698,
@@ -29,8 +29,8 @@ posts = Post.create(
 		available: false
 	},
 	{
-		user_id: 3,
-		borrower_id: 1,
+		user_id: 1,
+		borrower_id: 2,
 		title: 'iron',
 		description: 'works great on t-shirts',
     latitude: 40.738888,
@@ -39,7 +39,7 @@ posts = Post.create(
 	},
 	{
 		user_id: 1,
-		borrower_id: null,
+		borrower_id: nil,
 		title: 'ladder',
 		description: '25-foot ladder. Works great for saving cats.',
     latitude: 40.738698,
@@ -57,7 +57,7 @@ posts = Post.create(
 	},
 	{
 		user_id: 2,
-		borrower_id: null,
+		borrower_id: nil,
 		title: 'fan',
 		description: 'you know, like a paper fan for you face or whatever',
     latitude: 40.738668,
@@ -65,8 +65,8 @@ posts = Post.create(
 		available: true
 	},
 	{
-		user_id: 3,
-		borrower_id: null,
+		user_id: 2,
+		borrower_id: nil,
 		title: 'air rifle',
 		description: 'great for getting rid of pesty critters',
     latitude: 40.739688,
