@@ -10,7 +10,7 @@
   <a ng-click="mainCtrl.filterAs('borrowedItems')" id="borrowedItems" class="blog-nav-item" href="#">My borrowed items</a>
   <a ng-click="mainCtrl.filterAs('leantItems')" id="leantItems" class="blog-nav-item" href="#">My lent items</a>
   <a ng-click="mainCtrl.filterAs('listedItems')" id="listedItems" class="blog-nav-item" href="#">My listed items</a>
-  <a ng-click="mainCtrl.toggleForm(true)" id="addItem" class="blog-nav-item" href="#">+ Add an item</a>
+  <a ng-click="mainCtrl.toggleForm(true)" data-toggle="collapse" data-target="#demo" class="blog-nav-item" href="#">+ Add an item</a>
   <div class="search">
     <div class="form-group">
       <input class="form-control" type="text" placeholder="Search" maxlength="70">
@@ -21,7 +21,7 @@
 <div class="container2">
   <!--This form adds new listings to the DB -->
   <!--This form will show when a user clicks on the add listing-->
-    <form ng-show="mainCtrl.formStatus">
+    <form ng-show="mainCtrl.formStatus" id="demo" class="collapse">
       <div class="add-post">
         <div ng-click="mainCtrl.toggleForm(false)" class="close" >&#10005;</div>
           <div class="form-group">
@@ -35,97 +35,95 @@
     </form><!-- END OF CREATE LISTING FORM -->
 
   <div class="post">
-  <div class="posts">
-  <!-- available items -->
-  <main ng-controller="ItemController as itemCtrl">
-  	<section ng-show="mainCtrl.filter === 'availableItems'">
-  		<div ng-repeat="item in itemCtrl.itemList" ng-show="item.available && item.user_id != mainCtrl.currentUser.user_id">
-  			<p class="title">{{item.title}}</p>
-  			<p class="description">{{item.description}}</p>
-        <div class="button">
-          <a href="#" class="btn btn-small">Borrow me</a>
+    <div class="posts">
+    <!-- available items -->
+    <main ng-controller="ItemController as itemCtrl">
+    	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'availableItems'">
+    		<div ng-show="item.available && item.user_id != mainCtrl.currentUser.user_id">
+    			<p class="title">{{item.title}}</p>
+    			<p class="description">{{item.description}}</p>
+          <div class="button">
+            <a href="#" class="btn btn-small" >Borrow me</a>
+          </div>
+          <hr>
         </div>
-        <hr>
-      </div>
+    	</section>
 
-  	</section>
+    	<!--my borrowed items -->
+    	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'borrowedItems'">
+    		<div ng-show="item.borrower_id === mainCtrl.currentUser.user_id">
+          <p class="title">{{item.title}}</p>
+          <p class="description">{{item.description}}</p>
+          <div class="button">
+            <a href="#" class="btn btn-small">Return me</a>
+          </div><br>
+          <table>
+            <tr>
+              <td>
+                <div class="user-message">
+                  <%= image_tag 'user.png' %>
+                </div>
+              </td>
+              <td class="message">
+            		<form class="form-group">
+            			<input class="form-control message" type="text" placeholder="Write a message to lender...">
+            		</form>
+              </td>
+            </tr>
+          </table>
+    			<div><span class="sender">Sender</span><span> message</span></div>
+    			<small class="time">time stamp</small>
+          <hr>
+    		</div>
+    	</section>
 
+    	<!--my lent items -->
+    	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'leantItems'">
+    		<div ng-show="item.borrower_id && item.user_id === mainCtrl.currentUser.user_id">
+    			<p class="title">{{item.title}}</p>
+    			<p class="description">{{item.description}}</p>
+          <table>
+            <tr>
+              <td>
+                <div class="user-message">
+                  <%= image_tag 'user.png' %>
+                </div>
+              </td>
+              <td class="message">
+            		<form class="form-group">
+            			<input class="form-control message" type="text" placeholder="Write a message to borrower...">
+            		</form>
+              </td>
+            </tr>
+          </table>
+    			<div><span class="sender">Sender</span><span> message</span></div>
+    			<small class="time">time stamp</small>
+          <hr>
+    		</div>
+    	</section>
 
-  	<!--my borrowed items -->
-  	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'borrowedItems'">
-  		<div ng-show="item.borrower_id === mainCtrl.currentUser.user_id">
-        <p class="title">{{item.title}}</p>
-        <p class="description">{{item.description}}</p>
-        <div class="button">
-          <a href="#" class="btn btn-small">Return me</a>
-        </div><br>
-        <table>
-          <tr>
-            <td>
-              <div class="user-message">
-                <%= image_tag 'user.png' %>
-              </div>
-            </td>
-            <td class="message">
-          		<form class="form-group">
-          			<input class="form-control message" type="text" placeholder="Write a message to lender...">
-          		</form>
-            </td>
-          </tr>
-        </table>
-  			<div><span class="sender">Sender</span><span> message</span></div>
-  			<small class="time">time stamp</small>
-        <hr>
-  		</div>
-  	</section>
+    	<!--my listed items -->
+    	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'listedItems'">
+    		<div ng-show="item.user_id === mainCtrl.currentUser.user_id && !borrower_id">
+          <p class="title">{{item.title}}</p>
+          <p class="description">{{item.description}}</p>
+          <div class="button">
+            <a href="#" class="btn btn-small edit" >Edit</a>
+            <a href="#" class="btn btn-small">Delete</a>
+          </div>
+          <hr>
+    		</div>
+    	</section>
+    </main>
 
-  	<!--my lent items -->
-  	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'leantItems'">
-  		<div ng-show="item.borrower_id && item.user_id === mainCtrl.currentUser.user_id">
-  			<p class="title">{{item.title}}</p>
-  			<p class="description">{{item.description}}</p>
-        <table>
-          <tr>
-            <td>
-              <div class="user-message">
-                <%= image_tag 'user.png' %>
-              </div>
-            </td>
-            <td class="message">
-          		<form class="form-group">
-          			<input class="form-control message" type="text" placeholder="Write a message to borrower...">
-          		</form>
-            </td>
-          </tr>
-        </table>
-  			<div><span class="sender">Sender</span><span> message</span></div>
-  			<small class="time">time stamp</small>
-        <hr>
-  		</div>
-  	</section>
-
-  	<!--my listed items -->
-  	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'listedItems'">
-  		<div ng-show="item.user_id === mainCtrl.currentUser.user_id && !borrower_id">
-        <p class="title">{{item.title}}</p>
-        <p class="description">{{item.description}}</p>
-        <div class="button">
-          <a href="#" class="btn btn-small edit" >Edit</a>
-          <a href="#" class="btn btn-small">Delete</a>
-        </div>
-        <hr>
-  		</div>
-  	</section>
-  </main>
-
-  </div>
+    </div>
   </div>
 </div>
 
+
 <div class="container2">
-  <map zoom="12" center="40.7, -73.9">
-    <marker ng-repeat="item in itemCtrl.itemList" ng-if="item.available && item.user_id != mainCtrl.currentUser.user_id" position="[{{item.latitude}}, {{item.longitude}}]" on-click=""></marker>
-  </map>
+  <div class="map">
+  </div>
 
   <footer>
     <p>&copy; Something Borrowed</p>
