@@ -277,9 +277,7 @@ header {
 
 /* Map */
 
-.map {
-  background-image: url('map.jpg');
-  padding: 30px;
+map {
   border-radius: 10px;
   border: 1px solid #dfe6eb;
   box-shadow: 1px 1px 1px #c9c9c9;
