@@ -278,15 +278,27 @@ header {
 /* Map */
 
 .map {
-  background-color: #ffffff;
+  background-color: #dedede;
+  background-image: url('map.jpg');
   padding: 30px;
   border-radius: 10px;
   border: 1px solid #dfe6eb;
   box-shadow: 1px 1px 1px #c9c9c9;
+  height: 200px;
 }
 
 @media (max-width: 640px) {
   .map {
     width: 100%;
   }
+}
+
+
+/* Footer */
+
+footer{
+  text-align: center;
+  padding: 20px;
+  font-size: 11px;
+  color: grey;
 }
