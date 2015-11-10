@@ -203,8 +203,12 @@ header {
 
 .btn-small {
   font-size: 12px;
-  padding: 5px 10px;
+  padding: 6px 14px 7px 14px;
   display: inline;
+}
+
+.edit {
+  padding: 6px 22px 7px 22px;
 }
 
 .button {
@@ -217,12 +221,7 @@ header {
 }
 
 .description {
-  font-size: 14px;
-}
-
-.message {
-  font-size: 12px;
-  display: inline-block;
+  font-size: 15px;
 }
 
 .close {
@@ -231,4 +230,27 @@ header {
   font-size: 12px;
   font-weight: normal;
   padding-bottom: 12px;
+}
+
+.user-message {
+  padding-bottom: 13px;
+}
+
+.user-message img {
+  width: 32px;
+  position: relative;
+  margin-right: 5px;
+}
+
+.message {
+  font-size: 13px;
+  width: 100%;
+}
+
+.sender {
+  color: #2797b0;
+}
+
+.time {
+  color: #a3a3a3;
 }

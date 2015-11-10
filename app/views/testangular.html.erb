@@ -43,7 +43,7 @@
   			<p class="title">{{item.title}}</p>
   			<p class="description">{{item.description}}</p>
         <div class="button">
-          <a href="#" class="btn btn-small" style="padding: 6px 16px 7px 16px; ">Borrow me</a>
+          <a href="#" class="btn btn-small" >Borrow me</a>
         </div>
         <hr>
       </div>
@@ -54,35 +54,51 @@
   		<div ng-show="item.borrower_id === mainCtrl.currentUser.user_id">
         <p class="title">{{item.title}}</p>
         <p class="description">{{item.description}}</p>
-          <div class="user">
-            <%= image_tag 'user.png' %>
-          </div>
-      		<form class="form-group message">
-      			<input class="message form-control" type="text" placeholder="Write a message to lender...">
-      		</form>
-  				<div>message</div>
-  				<small>sender</small>
-  				<small>time stamp</small>
-          <div style="text-align: right">
-            <a href="#" class="btn btn-small" style="padding: 6px 16px 7px 16px; ">Return me</a>
-          </div>
-          <hr>
+        <div class="button">
+          <a href="#" class="btn btn-small">Return me</a>
+        </div><br>
+        <table>
+          <tr>
+            <td>
+              <div class="user-message">
+                <%= image_tag 'user.png' %>
+              </div>
+            </td>
+            <td class="message">
+          		<form class="form-group">
+          			<input class="form-control message" type="text" placeholder="Write a message to lender...">
+          		</form>
+            </td>
+          </tr>
+        </table>
+  			<div><span class="sender">Sender</span><span> message</span></div>
+  			<small class="time">time stamp</small>
+        <hr>
   		</div>
   	</section>
 
   	<!--my lent items -->
   	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'leantItems'">
   		<div ng-show="item.borrower_id && item.user_id === mainCtrl.currentUser.user_id">
-  			<p>{{item.title}}</p>
-  			<p>{{item.description}}</p>
-  			<form>
-  				<input type="text" placeholder="message to borrower">
-  			</form>
-  			<div>
-  				<p>message</p>
-  				<small>sender</small>
-  				<small>time stamp</small>
-  			</div>
+  			<p class="title">{{item.title}}</p>
+  			<p class="description">{{item.description}}</p>
+        <table>
+          <tr>
+            <td>
+              <div class="user-message">
+                <%= image_tag 'user.png' %>
+              </div>
+            </td>
+            <td class="message">
+          		<form class="form-group">
+          			<input class="form-control message" type="text" placeholder="Write a message to borrower...">
+          		</form>
+            </td>
+          </tr>
+        </table>
+  			<div><span class="sender">Sender</span><span> message</span></div>
+  			<small class="time">time stamp</small>
+        <hr>
   		</div>
   	</section>
 
@@ -91,9 +107,9 @@
   		<div ng-show="item.user_id === mainCtrl.currentUser.user_id && !borrower_id">
         <p class="title">my listed item title</p>
         <p class="description">my listed item description</p>
-        <div style="text-align: right">
-          <a href="#" class="btn btn-small" style="padding: 6px 16px 7px 16px; ">Edit</a>
-          <a href="#" class="btn btn-small" style="padding: 6px 16px 7px 16px; ">Delete</a>
+        <div class="button">
+          <a href="#" class="btn btn-small edit" >Edit</a>
+          <a href="#" class="btn btn-small">Delete</a>
         </div>
         <hr>
   		</div>
