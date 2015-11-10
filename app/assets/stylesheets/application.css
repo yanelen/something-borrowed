@@ -276,3 +276,17 @@ header {
 
 
 /* Map */
+
+.map {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #dfe6eb;
+  box-shadow: 1px 1px 1px #c9c9c9;
+}
+
+@media (max-width: 640px) {
+  .map {
+    width: 100%;
+  }
+}
