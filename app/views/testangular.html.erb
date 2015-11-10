@@ -24,13 +24,16 @@
   <!--This form adds new listings to the DB -->
   <!--This form will show when a user clicks on the add listing-->
   <form ng-show="mainCtrl.formStatus">
-    <small ng-click="mainCtrl.toggleForm(false)">X Close</small>
+    <small ng-click="mainCtrl.toggleForm(false)" style="float:right; cursor:pointer">X Close</small>
     <div class="form-group">
       <label>Item Name</label><br>
       <input type="text" class="form-control" required maxlength="70"><br/>
       <label>Item Description</label>
-      <textarea class="form-control" rows="5" required maxlength="1000"></textarea><br/>
-    <input type="submit" value="Submit" class="btn btn-small">
+      <textarea class="form-control" rows="3" required maxlength="1000"></textarea><br/>
+      <div class="button">
+        <input type="submit" value="Submit" class="btn btn-small">
+      </div>
+      <hr>
     </div>
   </form><!-- END OF CREATE LISTING FORM -->
 
@@ -38,19 +41,19 @@
   <main ng-controller="ItemController as itemCtrl">
   	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'availableItems'">
   		<div ng-show="item.available && item.user_id != mainCtrl.currentUser.user_id">
-  			<div class="title">{{item.title}}</div>
+  			<p class="title">{{item.title}}</p>
   			<p class="description">{{item.description}}</p>
-        <div style="text-align: right">
+        <div class="button">
           <a href="#" class="btn btn-small" style="padding: 6px 16px 7px 16px; ">Borrow me</a>
         </div>
-        <br>
+        <hr>
       </div>
   	</section>
 
   	<!--my borrowed items -->
   	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'borrowedItems'">
   		<div ng-show="item.borrower_id === mainCtrl.currentUser.user_id">
-        <div class="title">{{item.title}}</div>
+        <p class="title">{{item.title}}</p>
         <p class="description">{{item.description}}</p>
           <div class="user">
             <%= image_tag 'user.png' %>
@@ -64,14 +67,14 @@
           <div style="text-align: right">
             <a href="#" class="btn btn-small" style="padding: 6px 16px 7px 16px; ">Return me</a>
           </div>
-          <br>
+          <hr>
   		</div>
   	</section>
 
   	<!--my lent items -->
   	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'leantItems'">
   		<div ng-show="item.borrower_id && item.user_id === mainCtrl.currentUser.user_id">
-  			<h3>{{item.title}}</h3>
+  			<p>{{item.title}}</p>
   			<p>{{item.description}}</p>
   			<form>
   				<input type="text" placeholder="message to borrower">
@@ -87,13 +90,13 @@
   	<!--my listed items -->
   	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'listedItems'">
   		<div ng-show="item.user_id === mainCtrl.currentUser.user_id && !borrower_id">
-        <div class="title">my listed item title</div>
+        <p class="title">my listed item title</p>
         <p class="description">my listed item description</p>
         <div style="text-align: right">
           <a href="#" class="btn btn-small" style="padding: 6px 16px 7px 16px; ">Edit</a>
           <a href="#" class="btn btn-small" style="padding: 6px 16px 7px 16px; ">Delete</a>
         </div>
-        <br><br>
+        <hr>
   		</div>
   	</section>
   </main>

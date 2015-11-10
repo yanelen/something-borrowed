@@ -193,9 +193,12 @@ header {
   display: inline;
 }
 
+.button {
+  text-align: right;
+}
+
 .title {
   font-size: 20px;
-  margin-bottom: 12px;
   color: #a3a3a3;
 }
 
@@ -206,4 +209,14 @@ header {
 .message {
   font-size: 12px;
   display: inline-block;
+}
+
+label {
+  color: #808080;
+  font-weight: normal;
+}
+
+.close {
+  float:right;
+  cursor:pointer;
 }
