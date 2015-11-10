@@ -35,87 +35,87 @@
     </form><!-- END OF CREATE LISTING FORM -->
 
   <div class="post">
-  <div class="posts">
-  <!-- available items -->
-  <main ng-controller="ItemController as itemCtrl">
-  	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'availableItems'">
-  		<div ng-show="item.available && item.user_id != mainCtrl.currentUser.user_id">
-  			<p class="title">{{item.title}}</p>
-  			<p class="description">{{item.description}}</p>
-        <div class="button">
-          <a href="#" class="btn btn-small" >Borrow me</a>
+    <div class="posts">
+    <!-- available items -->
+    <main ng-controller="ItemController as itemCtrl">
+    	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'availableItems'">
+    		<div ng-show="item.available && item.user_id != mainCtrl.currentUser.user_id">
+    			<p class="title">{{item.title}}</p>
+    			<p class="description">{{item.description}}</p>
+          <div class="button">
+            <a href="#" class="btn btn-small" >Borrow me</a>
+          </div>
+          <hr>
         </div>
-        <hr>
-      </div>
-  	</section>
+    	</section>
 
-  	<!--my borrowed items -->
-  	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'borrowedItems'">
-  		<div ng-show="item.borrower_id === mainCtrl.currentUser.user_id">
-        <p class="title">{{item.title}}</p>
-        <p class="description">{{item.description}}</p>
-        <div class="button">
-          <a href="#" class="btn btn-small">Return me</a>
-        </div><br>
-        <table>
-          <tr>
-            <td>
-              <div class="user-message">
-                <%= image_tag 'user.png' %>
-              </div>
-            </td>
-            <td class="message">
-          		<form class="form-group">
-          			<input class="form-control message" type="text" placeholder="Write a message to lender...">
-          		</form>
-            </td>
-          </tr>
-        </table>
-  			<div><span class="sender">Sender</span><span> message</span></div>
-  			<small class="time">time stamp</small>
-        <hr>
-  		</div>
-  	</section>
+    	<!--my borrowed items -->
+    	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'borrowedItems'">
+    		<div ng-show="item.borrower_id === mainCtrl.currentUser.user_id">
+          <p class="title">{{item.title}}</p>
+          <p class="description">{{item.description}}</p>
+          <div class="button">
+            <a href="#" class="btn btn-small">Return me</a>
+          </div><br>
+          <table>
+            <tr>
+              <td>
+                <div class="user-message">
+                  <%= image_tag 'user.png' %>
+                </div>
+              </td>
+              <td class="message">
+            		<form class="form-group">
+            			<input class="form-control message" type="text" placeholder="Write a message to lender...">
+            		</form>
+              </td>
+            </tr>
+          </table>
+    			<div><span class="sender">Sender</span><span> message</span></div>
+    			<small class="time">time stamp</small>
+          <hr>
+    		</div>
+    	</section>
 
-  	<!--my lent items -->
-  	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'leantItems'">
-  		<div ng-show="item.borrower_id && item.user_id === mainCtrl.currentUser.user_id">
-  			<p class="title">{{item.title}}</p>
-  			<p class="description">{{item.description}}</p>
-        <table>
-          <tr>
-            <td>
-              <div class="user-message">
-                <%= image_tag 'user.png' %>
-              </div>
-            </td>
-            <td class="message">
-          		<form class="form-group">
-          			<input class="form-control message" type="text" placeholder="Write a message to borrower...">
-          		</form>
-            </td>
-          </tr>
-        </table>
-  			<div><span class="sender">Sender</span><span> message</span></div>
-  			<small class="time">time stamp</small>
-        <hr>
-  		</div>
-  	</section>
+    	<!--my lent items -->
+    	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'leantItems'">
+    		<div ng-show="item.borrower_id && item.user_id === mainCtrl.currentUser.user_id">
+    			<p class="title">{{item.title}}</p>
+    			<p class="description">{{item.description}}</p>
+          <table>
+            <tr>
+              <td>
+                <div class="user-message">
+                  <%= image_tag 'user.png' %>
+                </div>
+              </td>
+              <td class="message">
+            		<form class="form-group">
+            			<input class="form-control message" type="text" placeholder="Write a message to borrower...">
+            		</form>
+              </td>
+            </tr>
+          </table>
+    			<div><span class="sender">Sender</span><span> message</span></div>
+    			<small class="time">time stamp</small>
+          <hr>
+    		</div>
+    	</section>
 
-  	<!--my listed items -->
-  	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'listedItems'">
-  		<div ng-show="item.user_id === mainCtrl.currentUser.user_id && !borrower_id">
-        <p class="title">{{item.title}}</p>
-        <p class="description">{{item.description}}</p>
-        <div class="button">
-          <a href="#" class="btn btn-small edit" >Edit</a>
-          <a href="#" class="btn btn-small">Delete</a>
-        </div>
-        <hr>
-  		</div>
-  	</section>
-  </main>
+    	<!--my listed items -->
+    	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'listedItems'">
+    		<div ng-show="item.user_id === mainCtrl.currentUser.user_id && !borrower_id">
+          <p class="title">{{item.title}}</p>
+          <p class="description">{{item.description}}</p>
+          <div class="button">
+            <a href="#" class="btn btn-small edit" >Edit</a>
+            <a href="#" class="btn btn-small">Delete</a>
+          </div>
+          <hr>
+    		</div>
+    	</section>
+    </main>
 
-  </div>
+    </div>
   </div>
 </div>
