@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
   root 'application#welcome'
 
+  get 'application/home'
+
+  resources :posts, only: [:index, :create],
+  defaults: { format: :json } do
+    resources :comments, only: [:create], shallow: true
+  end
+
+
   get '/testangular' => 'application#testangular'
   get '/signup' => 'users#signup'
 
   post '/users' => 'users#create'
 
-  get '/session' => 'session#current_sinner', defaults: { format: :json }
+  get '/session' => 'session#user_current', defaults: { format: :json }
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
 

@@ -2,14 +2,36 @@
 <html ng-app="SomethingBorrowed">
 <head>
   <title>Something Borrowed|A Borrowing Marketplace</title>
-  <%= stylesheet_link_tag    'application', 'bootstrap.min', media: 'all', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  <%= stylesheet_link_tag    'application', 'bootstrap.min', 'blog', media: 'all', 'data-turbolinks-track' => true %>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-  <%= javascript_include_tag 'angular', 'ie-emulation-modes-warning', 'ie10-viewport-bug-workaround', 'data-turbolinks-track' => true %>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-animate.js"></script>
+  <%= javascript_include_tag 'angular', 'bootstrap.min', 'ie-emulation-modes-warning', 'ie10-viewport-bug-workaround', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<h1> this is a test </h1>
+<body ng-controller="MainController as mainCtrl">
+
+<header>
+  <div class="header clearfix container2">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+        <li class="user"><%= image_tag 'user.png' %></li>
+        <li class="user">{{mainCtrl.currentUser.username}}</li>
+        <li class="logout" ng-click="mainCtrl.logOut()">Log out</li>
+      </ul>
+    </nav>
+    <div class="logo-s">
+      <%= image_tag 'logo.png' %>
+    </div>
+  </div>
+</header>
+
+
 <%= yield %>
 
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC22ExL49DHoowHqx6gVDr3qYOCW0_BI4s&callback=initMap">
+  </script>
 </body>
 </html>
