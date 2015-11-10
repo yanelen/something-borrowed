@@ -48,7 +48,7 @@
         <hr>
       </div>
       <map zoom="12" center="40.7, -73.9">
-        <marker ng-repeat="item in itemCtrl.itemList" ng-if="item.available && item.user_id != mainCtrl.currentUser.user_id" position="[{{item.latitude}}, {{item.longitude}}]"></marker>
+        <marker ng-repeat="item in itemCtrl.itemList" ng-if="item.available && item.user_id != mainCtrl.currentUser.user_id" position="[{{item.latitude}}, {{item.longitude}}]" on-click=""></marker>
       </map>
   	</section>
 
