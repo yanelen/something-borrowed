@@ -8,6 +8,7 @@
 
 users = User.create([{email: "casey.panzer@gmail.com", username: "cpanzer", password: '123456'},{email: "casey@gmail.com", username: "sodell", password: '123456'}])
 
+
 posts = Post.create(
 [
 	{
@@ -15,17 +16,17 @@ posts = Post.create(
 		borrower_id: nil,
 		title: 'bicycle',
 		description: 'brand new, 12-speed',
-    latitude: 40.738698,
-    longitude: -73.993250,
-		available: true
+    latitude: "40.738698",
+    longitude: "-73.993250",
+		available: true,
 	},
 	{
 		user_id: 2,
 		borrower_id: 1,
 		title: 'catapult',
 		description: 'can hit Russia from Alaska',
-    latitude: 40.738668,
-    longitude: -73.993250,
+    latitude: "40.738668",
+    longitude: "-73.993250",
 		available: false
 	},
 	{
@@ -33,8 +34,8 @@ posts = Post.create(
 		borrower_id: 2,
 		title: 'iron',
 		description: 'works great on t-shirts',
-    latitude: 40.738888,
-    longitude: -73.993250,
+    latitude: "40.738888",
+    longitude: "-73.993250",
 		available: false
 	},
 	{
@@ -42,8 +43,8 @@ posts = Post.create(
 		borrower_id: nil,
 		title: 'ladder',
 		description: '25-foot ladder. Works great for saving cats.',
-    latitude: 40.738698,
-    longitude: -73.994250,
+    latitude: "40.738698",
+    longitude: "-73.994250",
 		available: true
 	},
 	{
@@ -51,8 +52,8 @@ posts = Post.create(
 		borrower_id: 2,
 		title: 'bicycle',
 		description: 'brand new, 12-speed',
-    latitude: 40.738788,
-    longitude: -73.993240,
+    latitude: "40.738788",
+    longitude: "-73.993240",
 		available: false
 	},
 	{
@@ -60,8 +61,8 @@ posts = Post.create(
 		borrower_id: nil,
 		title: 'fan',
 		description: 'you know, like a paper fan for you face or whatever',
-    latitude: 40.738668,
-    longitude: -73.993280,
+    latitude: "40.738668",
+    longitude: "-73.993280",
 		available: true
 	},
 	{
@@ -69,8 +70,8 @@ posts = Post.create(
 		borrower_id: nil,
 		title: 'air rifle',
 		description: 'great for getting rid of pesty critters',
-    latitude: 40.739688,
-    longitude: -73.993270,
+    latitude: "40.739688",
+    longitude: "-73.993270",
 		available: true
 	}
 ]);
