@@ -75,8 +75,8 @@
 	<!--my listed items -->
 	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'listedItems'">
 		<div ng-show="item.user_id === mainCtrl.currentUser.user_id && !borrower_id">
-			<h3>my listed item title</h3>
-			<p>my listed item description</p>
+			<h3>{{item.title}}</h3>
+			<p>{{item.description}}</p>
 			<button>edit</button>
 			<button>delete</button>
 		</div>

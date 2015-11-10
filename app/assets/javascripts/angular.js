@@ -24,10 +24,6 @@ app.controller('MainController', ['$http', function($http){
 
 	};
 
-	mainCtrl.logOut = function(){
-		mainCtrl.currentUser = null;
-	};
-
 	mainCtrl.toggleForm = function(status){
 		mainCtrl.formStatus = status;
 	};
@@ -44,6 +40,7 @@ app.controller('ItemController', ['$http', function($http){
 
 	$http.get('/posts').success(function(data){
 		itemCtrl.itemList = data.posts
+		console.log(itemCtrl.itemList)
 	})
 
 }]);
