@@ -185,9 +185,19 @@ header {
   text-align: left;
 }
 
+.close {
+  float:right;
+  cursor:pointer;
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 12px;
+  margin-right: -12px;
+}
+
 .add-post {
+  box-shadow: 1px 1px 1px #c9c9c9;
   background-color: #e4f0f5;
-  padding: 30px 30px 10px 30px;
+  padding: 16px 30px 10px 30px;
   border-radius: 10px;
   border: 1px solid #bedfeb;
 }
@@ -232,14 +242,6 @@ header {
 
 .description {
   font-size: 15px;
-}
-
-.close {
-  float:right;
-  cursor:pointer;
-  font-size: 12px;
-  font-weight: normal;
-  padding-bottom: 12px;
 }
 
 .user-message {
