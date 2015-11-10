@@ -259,7 +259,7 @@ header {
 }
 
 .sender {
-  color: #2797b0;
+  font-weight: bold;
 }
 
 .time {
