@@ -31,7 +31,7 @@
 
 <!-- available items -->
 <main ng-controller="ItemController as itemCtrl">
-	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'availableItems'">
+	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'availableItems'" ng-submit="">
 		<div ng-show="item.available && item.user_id != mainCtrl.currentUser.user_id">
 			<h3>{{item.title}}</h3>
 			<p>{{item.description}}</p>
