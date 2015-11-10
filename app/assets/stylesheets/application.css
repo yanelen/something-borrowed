@@ -30,7 +30,7 @@ body {
 
 .btn {
   background-color: #23accf;
-  color: white;
+  color: #ffffff;
   font-size: 18px;
   padding: 5px 20px;
 }
@@ -47,7 +47,7 @@ body {
 
 @media (min-width: 768px) {
   .container {
-    max-width: 550px;
+    width: 550px;
   }
 }
 
@@ -110,7 +110,7 @@ header {
 
 .logo-s {
   display: inline-block;
-  margin: 7px 7px 7px 20px;
+  margin: 7px;
 }
 
 .logo-s img {
@@ -130,7 +130,7 @@ header {
 }
 
 .nav {
-  margin: 12px 30px 0px 10px;
+  margin: 12px 0px 0px 10px;
   color: #808080;
   float: right;
 }
@@ -139,4 +139,131 @@ header {
   padding-left: 30px;
   font-size: 12px;
   top: 3px;
+}
+
+
+/* Navigation */
+
+.blog-nav {
+  text-align: center;
+}
+
+.search {
+  width: 180px;
+  padding: 10px 0 10px 10px;
+  display: inline-block;
+}
+
+.search div input {
+  font-size: 12px;
+}
+
+@media (max-width: 640px) {
+  .search {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+/* Posts */
+
+.post {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #dfe6eb;
+  box-shadow: 1px 1px 1px #c9c9c9;
+}
+
+@media (max-width: 640px) {
+  .post {
+    width: 100%;
+  }
+}
+
+.posts {
+  text-align: left;
+}
+
+.close {
+  float:right;
+  cursor:pointer;
+  font-size: 18px;
+  padding-bottom: 12px;
+  margin-right: -12px;
+}
+
+.add-post {
+  box-shadow: 1px 1px 1px #c9c9c9;
+  background-color: #e4f0f5;
+  padding: 16px 30px 10px 30px;
+  border-radius: 10px;
+  border: 1px solid #bedfeb;
+}
+
+@media (max-width: 640px) {
+  .add-post {
+    width: 100%;
+  }
+}
+
+.container2{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width:768px){.container2{width:750px}}@media (min-width:992px){.container2{width:970px}}@media (min-width:1200px){.container2{width:1170px}}
+
+@media (min-width: 768px) {
+  .container2 {
+    width: 880px;
+  }
+}
+
+.btn-small {
+  background-color: #facd46;
+  font-size: 12px;
+  padding: 6px 14px 7px 14px;
+  display: inline;
+}
+
+.btn-small:hover {
+  background-color: #dba92a;
+}
+
+.edit {
+  padding: 6px 22px 7px 22px;
+}
+
+.button {
+  text-align: right;
+}
+
+.title {
+  font-size: 20px;
+  color: #a3a3a3;
+}
+
+.description {
+  font-size: 15px;
+}
+
+.user-message {
+  padding-bottom: 14px;
+}
+
+.user-message img {
+  width: 32px;
+  position: relative;
+  margin-right: 5px;
+}
+
+.message {
+  font-size: 12px;
+  width: 100%;
+}
+
+.sender {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.time {
+  color: #a3a3a3;
+  font-size: 11px;
 }
