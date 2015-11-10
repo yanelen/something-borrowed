@@ -46,8 +46,6 @@ app.controller('ItemController', ['$http', function($http){
 
 itemCtrl.getItems()
 
-
-
 }]);
 
 })();
