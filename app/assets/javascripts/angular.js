@@ -29,20 +29,20 @@ app.controller('MainController', ['$http', function($http){
 	};
 
 
-
-
 	//Once routes are set, GET request to '/session' will set MainController.currentUser = data.currentUser
 
 }]);
 
 //This is the item controller which makes an AJAX call to /posts
 //getting all relevant data, which will then be filtered using angular in the view
-app.controller('ItemController', [('$http'), function($http, $scope){
+app.controller('ItemController', ['$http', '$scope', function($http, $scope){
 	var itemCtrl = this;
+	var lat;
+	var lng;
+	var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+	console.log(itemCtrl)
 
-
-
-	itemCtrl.getItems = function(){$http.get('/posts').success(function(data){
+itemCtrl.getItems = function(){$http.get('/posts').success(function(data){
 		itemCtrl.itemList = data.posts;
 		console.log(itemCtrl.itemList);
 	});
@@ -50,7 +50,47 @@ app.controller('ItemController', [('$http'), function($http, $scope){
 
 itemCtrl.getItems();
 
+this.initMap = function() {
+      console.log('somehting is happening')
+         var myLatLng = {lat: 40.738688, lng: -73.993250};
+         var map = new google.maps.Map(document.getElementById('map'), {
+           zoom: 13,
+           center: myLatLng
+         });
+         var marker = new google.maps.Marker({
+           position: myLatLng,
+           map: map,
+           draggable: true,
+         });
+         var infowindow = new google.maps.InfoWindow({
+           content: "HELLO"
+         });
+         google.maps.event.addListener(marker, 'dragend', function (evt) {
+             console.log(itemCtrl)
+            return itemCtrl.lat = evt.latLng.lat();
+            itemCtrl.lng = evt.latLng.lng();
+             console.log(itemCtrl)
+         });
+         marker.addListener('click', function() {
+           infowindow.open(map, marker);
+         });
+       };
+
+ itemCtrl.initMap();
+
+ this.thisFunction = function () {
+ 	console.log('------------------')
+ 	console.log(lat);
+ 	console.log(lng);
+ }
+
+
+itemCtrl.addItem = function(){
+	console.log(itemCtrl)
+};
+
 
 }]);
+
 
 })();
