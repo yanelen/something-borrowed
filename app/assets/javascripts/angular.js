@@ -29,6 +29,8 @@ app.controller('MainController', ['$http', function($http){
 	};
 
 
+
+
 	//Once routes are set, GET request to '/session' will set MainController.currentUser = data.currentUser
 
 }]);
@@ -38,6 +40,8 @@ app.controller('MainController', ['$http', function($http){
 app.controller('ItemController', ['$http', function($http){
 	var itemCtrl = this;
 
+
+
 	itemCtrl.getItems = function(){$http.get('/posts').success(function(data){
 		itemCtrl.itemList = data.posts
 		console.log(itemCtrl.itemList)
@@ -45,6 +49,7 @@ app.controller('ItemController', ['$http', function($http){
 }
 
 itemCtrl.getItems()
+
 
 }]);
 
