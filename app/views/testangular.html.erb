@@ -19,24 +19,23 @@
 </nav><!--END OF APP NAVIGATION -->
 
 <div class="container2">
-  <div class="post">
-  <div class="posts">
   <!--This form adds new listings to the DB -->
   <!--This form will show when a user clicks on the add listing-->
-  <form ng-show="mainCtrl.formStatus">
-    <small ng-click="mainCtrl.toggleForm(false)" style="float:right; cursor:pointer">X Close</small>
-    <div class="form-group">
-      <label>Item Name</label><br>
-      <input type="text" class="form-control" required maxlength="70"><br/>
-      <label>Item Description</label>
-      <textarea class="form-control" rows="3" required maxlength="1000"></textarea><br/>
-      <div class="button">
-        <input type="submit" value="Submit" class="btn btn-small">
+    <form ng-show="mainCtrl.formStatus">
+      <div class="add-post">
+        <small ng-click="mainCtrl.toggleForm(false)" class="close" >X Close</small>
+          <div class="form-group">
+            <input type="text" class="form-control" required maxlength="70" placeholder="Item name"><br/>
+            <textarea class="form-control" rows="3" required maxlength="1000" placeholder="Item description"></textarea><br/>
+            <div class="button">
+              <input type="submit" value="Submit" class="btn btn-small">
+            </div>
+          </div>
       </div>
-      <hr>
-    </div>
-  </form><!-- END OF CREATE LISTING FORM -->
+    </form><!-- END OF CREATE LISTING FORM -->
 
+  <div class="post">
+  <div class="posts">
   <!-- available items -->
   <main ng-controller="ItemController as itemCtrl">
   	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'availableItems'">

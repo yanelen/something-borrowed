@@ -167,6 +167,7 @@ header {
   background-color: #ffffff;
   padding: 30px;
   border-radius: 10px;
+  border: 1px solid #dfe6eb;
 }
 
 @media (max-width: 640px) {
@@ -177,6 +178,19 @@ header {
 
 .posts {
   text-align: left;
+}
+
+.add-post {
+  background-color: #e4f0f5;
+  padding: 30px 30px 10px 30px;
+  border-radius: 10px;
+  border: 1px solid #bedfeb;
+}
+
+@media (max-width: 640px) {
+  .add-post {
+    width: 100%;
+  }
 }
 
 .container2{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width:768px){.container2{width:750px}}@media (min-width:992px){.container2{width:970px}}@media (min-width:1200px){.container2{width:1170px}}
@@ -211,12 +225,10 @@ header {
   display: inline-block;
 }
 
-label {
-  color: #808080;
-  font-weight: normal;
-}
-
 .close {
   float:right;
   cursor:pointer;
+  font-size: 12px;
+  font-weight: normal;
+  padding-bottom: 12px;
 }
