@@ -6,7 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-users = User.create([{email: "@gmail.com", username: "cpanzer", password: "123456"},{email: "s@gmail.com", username: "sodell", password: "123456"}])
+users = User.create([{email: "casey.panzer@gmail.com", username: "cpanzer", password: '123456'},{email: "casey@gmail.com", username: "sodell", password: '123456'}])
+
 
 posts = Post.create(
 [
@@ -65,7 +66,11 @@ posts = Post.create(
 		available: true
 	},
 	{
+<<<<<<< HEAD
 		user_id: 1,
+=======
+		user_id: 2,
+>>>>>>> c7f2b09cb976ca94bf37451affe5ddada0f3b322
 		borrower_id: nil,
 		title: 'air rifle',
 		description: 'great for getting rid of pesty critters',
