@@ -5,7 +5,8 @@
   <a ng-click="mainCtrl.filterAs('borrowedItems')" id="borrowedItems" class="blog-nav-item" href="#">My borrowed items</a>
   <a ng-click="mainCtrl.filterAs('leantItems')" id="leantItems" class="blog-nav-item" href="#">My lent items</a>
   <a ng-click="mainCtrl.filterAs('listedItems')" id="listedItems" class="blog-nav-item" href="#">My listed items</a>
-  <a ng-click="mainCtrl.toggleForm(true)" data-toggle="collapse" data-target="#form" class="blog-nav-item" href="#">+ Add an item</a>
+  <a ng-click="mainCtrl.toggleForm(true); mainCtrl.loadMapCoor()" id="addItem" class="blog-nav-item" data-toggle="collapse" data-target="#form" href="#">+ Add an item</a>
+
   <div class="search">
     <div class="form-group">
       <input ng-model="searchText" class="form-control" type="text" placeholder="Search" maxlength="70">
@@ -44,9 +45,7 @@
         </div>
         <hr>
       </div>
-      <map zoom="12" center="40.7, -73.9">
-        <marker ng-repeat="item in itemCtrl.itemList | filter:searchText" ng-if="item.available && item.user_id != mainCtrl.currentUser.user_id" position="[{{item.latitude}}, {{item.longitude}}]" on-click=""></marker>
-      </map>
+
   	</section>
 
 
