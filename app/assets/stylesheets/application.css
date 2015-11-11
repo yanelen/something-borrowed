@@ -136,9 +136,15 @@ header {
 }
 
 .logout {
-  padding-left: 30px;
   font-size: 12px;
   top: 3px;
+  background:none;
+  border:none;
+  margin-left: 30px;
+}
+
+.logout:hover {
+  color: #23accf;
 }
 
 
@@ -164,6 +170,7 @@ header {
     padding: 15px;
   }
 }
+
 
 /* Posts */
 
@@ -207,11 +214,16 @@ header {
   }
 }
 
-.container2{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width:768px){.container2{width:750px}}@media (min-width:992px){.container2{width:970px}}@media (min-width:1200px){.container2{width:1170px}}
+.container2 {
+  padding-right:15px;
+  padding-left:15px;
+  margin-right:auto;
+  margin-left:auto
+}
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
   .container2 {
-    width: 880px;
+    width: 880px
   }
 }
 
@@ -266,4 +278,24 @@ header {
 .time {
   color: #a3a3a3;
   font-size: 11px;
+}
+
+#map {
+  height: 200px;
+  width: 100%;
+}
+
+.form-control:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: #000000 !important;
+}
+
+
+/* Footer */
+
+footer{
+  text-align: center;
+  padding: 20px;
+  font-size: 11px;
+  color: grey;
 }

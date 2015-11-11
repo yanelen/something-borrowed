@@ -2,23 +2,31 @@
 <html ng-app="SomethingBorrowed">
 <head>
   <title>Something Borrowed|A Borrowing Marketplace</title>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-
   <%= stylesheet_link_tag    'application', 'bootstrap.min', 'blog', media: 'all', 'data-turbolinks-track' => true %>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-animate.js"></script>
-  <%= javascript_include_tag 'angular', 'bootstrap.min', 'ie-emulation-modes-warning', 'ie10-viewport-bug-workaround', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-animate.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC22ExL49DHoowHqx6gVDr3qYOCW0_BI4s&">
+  </script>
 </head>
 <body ng-controller="MainController as mainCtrl">
-
 <header>
-  <div class="header clearfix container2">
+  <div class="header container2">
     <nav>
       <ul class="nav nav-pills pull-right">
         <li class="user"><%= image_tag 'user.png' %></li>
         <li class="user">{{mainCtrl.currentUser.username}}</li>
-        <li class="logout" ng-click="mainCtrl.logOut()">Log out</li>
+        <li class="logout" ng-click="mainCtrl.logOut()">
+          <form action="<%= session_path %>" method="POST">
+            <input type="hidden" name="authenticity_token"
+              value="<%= form_authenticity_token %>">
+            <input type="hidden" name="_method" value="DELETE">
+            <input class="logout" type="submit" value="Log out">
+          </form>
+        </li>
       </ul>
     </nav>
     <div class="logo-s">
@@ -27,11 +35,8 @@
   </div>
 </header>
 
-
 <%= yield %>
+<%= javascript_include_tag 'angular','googlemaps','bootstrap.min', 'ie-emulation-modes-warning', 'ie10-viewport-bug-workaround'  => true %>
 
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC22ExL49DHoowHqx6gVDr3qYOCW0_BI4s&callback=initMap">
-  </script>
 </body>
 </html>

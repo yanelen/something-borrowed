@@ -15,10 +15,15 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    comment = Comment.where(params[:post_id])
+    comment.destroy
+  end
+
   private
 
   def comment_params
     return params.require(:comment)
-      .permit(:description)
+      .permit(:user_id, :comment)
     end
 end
