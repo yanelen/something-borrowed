@@ -37,10 +37,6 @@ app.controller('MainController', ['$http', function($http){
 //getting all relevant data, which will then be filtered using angular in the view
 app.controller('ItemController', ['$http', '$scope', function($http, $scope){
 	var itemCtrl = this;
-	var lat;
-	var lng;
-	var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-	console.log(itemCtrl)
 
 itemCtrl.getItems = function(){$http.get('/posts').success(function(data){
 		itemCtrl.itemList = data.posts;
@@ -48,9 +44,10 @@ itemCtrl.getItems = function(){$http.get('/posts').success(function(data){
 	});
 };
 
+//Makes AJAX request to get all posts 
 itemCtrl.getItems();
 
-this.initMap = function() {
+itemCtrl.beginMap = function initMap() {
       console.log('somehting is happening')
          var myLatLng = {lat: 40.738688, lng: -73.993250};
          var map = new google.maps.Map(document.getElementById('map'), {
@@ -67,30 +64,27 @@ this.initMap = function() {
          });
          google.maps.event.addListener(marker, 'dragend', function (evt) {
              console.log(itemCtrl)
-            return itemCtrl.lat = evt.latLng.lat();
-            itemCtrl.lng = evt.latLng.lng();
-             console.log(itemCtrl)
+             $scope.itemCtrl.lat = evt.latLng.lat();
+             $scope.itemCtrl.lng = evt.latLng.lng();
+             console.log($scope)
          });
          marker.addListener('click', function() {
            infowindow.open(map, marker);
          });
        };
 
- itemCtrl.initMap();
+ itemCtrl.beginMap();
 
- this.thisFunction = function () {
- 	console.log('------------------')
- 	console.log(lat);
- 	console.log(lng);
- }
 
 
 itemCtrl.addItem = function(){
-	console.log(itemCtrl)
+	console.log($scope.$$nextSibling.itemCtrl.lat)
+	console.log($scope.$$nextSibling.itemCtrl.lng)
 };
 
 
 }]);
+
 
 
 })();
