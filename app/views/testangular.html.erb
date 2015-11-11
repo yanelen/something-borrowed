@@ -38,7 +38,7 @@
   			<p class="title">{{item.title}}</p>
   			<p class="description">{{item.description}}</p>
         <div class="button">
-          <a href="#" class="btn btn-small">Borrow me</a>
+          <a href="#" ng-click="itemCtrl.borrowItem(item)" class="btn btn-small">Borrow me</a>
         </div>
         <hr>
       </div>
@@ -74,7 +74,7 @@
   		</div>
   	</section>
 
-  	<!--my lent items -->
+  	<!--my leant items -->
   	<section ng-repeat="item in itemCtrl.itemList | filter:searchText" ng-show="mainCtrl.filter === 'leantItems'">
   		<div ng-show="item.borrower_id && item.user_id === mainCtrl.currentUser.user_id">
   			<p class="title">{{item.title}}</p>

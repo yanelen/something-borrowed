@@ -19,7 +19,14 @@
       <ul class="nav nav-pills pull-right">
         <li class="user"><%= image_tag 'user.png' %></li>
         <li class="user">{{mainCtrl.currentUser.username}}</li>
-        <li class="logout" ng-click="mainCtrl.logOut()">Log out</li>
+        <li class="logout" ng-click="mainCtrl.logOut()">
+          <form action="<%= session_path %>" method="POST">
+            <input type="hidden" name="authenticity_token"
+              value="<%= form_authenticity_token %>">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Log Out!">
+          </form>
+        </li>
       </ul>
     </nav>
     <div class="logo-s">
