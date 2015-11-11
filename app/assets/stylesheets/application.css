@@ -165,6 +165,7 @@ header {
   }
 }
 
+
 /* Posts */
 
 .post {
@@ -207,11 +208,16 @@ header {
   }
 }
 
-.container2{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width:768px){.container2{width:750px}}@media (min-width:992px){.container2{width:970px}}@media (min-width:1200px){.container2{width:1170px}}
+.container2 {
+  padding-right:15px;
+  padding-left:15px;
+  margin-right:auto;
+  margin-left:auto
+}
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
   .container2 {
-    width: 880px;
+    width: 880px
   }
 }
 
@@ -266,4 +272,14 @@ header {
 .time {
   color: #a3a3a3;
   font-size: 11px;
+}
+
+
+/* Footer */
+
+footer{
+  text-align: center;
+  padding: 20px;
+  font-size: 11px;
+  color: grey;
 }

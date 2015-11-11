@@ -27,11 +27,11 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
+    post = Post.find_by(post_id: params[:post_id])
+    @post = post.update(post_params)
 
-    if @post.update(post_params)
-      @post.save
-      render json: @post
+    if @post.save
+
     else
       render json: {
         error: {
@@ -42,13 +42,14 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
+    post = Post.find_by(post_id: params[:post_id])
+    post.destroy
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:borrower_id, :title, :description, :latitude, :longitude, :available)
+    return params.require(:post)
+            .permit(:title, :description)
   end
 end

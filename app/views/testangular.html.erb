@@ -5,7 +5,7 @@
   <a ng-click="mainCtrl.filterAs('borrowedItems')" id="borrowedItems" class="blog-nav-item" href="#">My borrowed items</a>
   <a ng-click="mainCtrl.filterAs('leantItems')" id="leantItems" class="blog-nav-item" href="#">My lent items</a>
   <a ng-click="mainCtrl.filterAs('listedItems')" id="listedItems" class="blog-nav-item" href="#">My listed items</a>
-  <a ng-click="mainCtrl.toggleForm(true); mainCtrl.loadMapCoor()" id="addItem" class="blog-nav-item" href="#">+ Add an item</a>
+  <a ng-click="mainCtrl.toggleForm(true); mainCtrl.loadMapCoor()" id="addItem" class="blog-nav-item" data-toggle="collapse" data-target="#form" href="#">+ Add an item</a>
   <div class="search">
     <div class="form-group">
       <input ng-model="searchText" class="form-control" type="text" placeholder="Search" maxlength="70">
@@ -16,9 +16,9 @@
 <div class="container2">
   <!--This form adds new listings to the DB -->
   <!--This form will show when a user clicks on the add listing-->
-    <form ng-controller="ItemController as itemCtrl" ng-submit="itemCtrl.addItem()" ng-show="mainCtrl.formStatus">
+    <form ng-controller="ItemController as itemCtrl" ng-submit="itemCtrl.addItem()" ng-show="mainCtrl.formStatus" id="form" class="collapse">
       <div class="add-post">
-        <div ng-click="mainCtrl.toggleForm(false)" class="close" >&#10005;</div>
+        <div ng-click="mainCtrl.toggleForm(false)" class="close" data-toggle="collapse" data-target="#form">&#10005;</div>
           <div class="form-group">
             <input ng-model="itemCtrl.newItemTitle" type="text" class="form-control" required maxlength="70" placeholder="Item name"><br/>
             <textarea ng-model="itemCtrl.newItemDescription" class="form-control" rows="3" required maxlength="1000" placeholder="Item description"></textarea><br/>
@@ -106,8 +106,8 @@
         <p class="title">{{item.title}}</p>
         <p class="description">{{item.description}}</p>
         <div class="button">
-          <a href="#" class="btn btn-small edit" >Edit</a>
-          <a href="#" class="btn btn-small">Delete</a>
+          <button class="btn btn-small edit" >Edit</button>
+          <button class="btn btn-small">Delete</button>
         </div>
         <hr>
   		</div>
@@ -117,3 +117,6 @@
   </div>
   </div>
 </div>
+<footer>
+  <p>&copy; Something Borrowed</p>
+</footer>

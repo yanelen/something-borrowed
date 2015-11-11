@@ -14,7 +14,7 @@
 </head>
 <body ng-controller="MainController as mainCtrl">
 <header>
-  <div class="header clearfix container2">
+  <div class="header container2">
     <nav>
       <ul class="nav nav-pills pull-right">
         <li class="user"><%= image_tag 'user.png' %></li>
@@ -27,6 +27,7 @@
     </div>
   </div>
 </header>
+
 <%= yield %>
 <%= javascript_include_tag 'angular','googlemaps','bootstrap.min', 'ie-emulation-modes-warning', 'ie10-viewport-bug-workaround'  => true %>
 
