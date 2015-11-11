@@ -136,9 +136,15 @@ header {
 }
 
 .logout {
-  padding-left: 30px;
   font-size: 12px;
   top: 3px;
+  background:none;
+  border:none;
+  margin-left: 30px;
+}
+
+.logout:hover {
+  color: #23accf;
 }
 
 
@@ -283,9 +289,6 @@ header {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
     -webkit-text-fill-color: #000000 !important;
 }
-
-
-
 
 
 /* Footer */
