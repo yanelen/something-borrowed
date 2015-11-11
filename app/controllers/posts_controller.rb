@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
 
-  # skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
-  before_action :require_current_user
+  # before_action :require_current_user
 
   def testangular
     render '/testangular', layout: "angularlayout"
@@ -27,11 +27,10 @@ class PostsController < ApplicationController
   end
 
   def update
-    post = Post.find_by(post_id: params[:post_id])
-    @post = post.update(post_params)
+    @post = Post.find(params[:id])
 
-    if @post.save
-
+    if @post.update(post_params)
+      render json: @post
     else
       render json: {
         error: {
@@ -42,8 +41,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find_by(post_id: params[:post_id])
-    post.destroy
+    @post = Post.find(params[:id])
+    @post.destroy
   end
 
   private
