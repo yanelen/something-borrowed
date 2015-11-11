@@ -274,6 +274,10 @@ header {
   font-size: 11px;
 }
 
+#map {
+  height: 200px; width: 100%;
+}
+
 
 /* Footer */
 
