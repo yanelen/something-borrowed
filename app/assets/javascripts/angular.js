@@ -27,6 +27,7 @@ app.controller('MainController', ['$http', function($http){
 	mainCtrl.loadMapCoor = function(){
 		console.log("works");
 		initMap();
+		updateMap();
 	};
 
 	mainCtrl.toggleForm = function(status){

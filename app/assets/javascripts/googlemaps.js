@@ -1,15 +1,15 @@
-var lat = 40.738688,
-    lng = -73.993250;
+var lat = "40.738688",
+    lng = "-73.993250";
 
-
+var map;
 function initMap() {
       console.log('initMap is Running');
-         var map = new google.maps.Map(document.getElementById('map'), {
+          map = new google.maps.Map(document.getElementById('map'), {
            zoom: 13,
-           center: {lat: lat, lng: lng}
+           center: {lat: parseFloat(lat), lng: parseFloat(lng)}
          });
          var marker = new google.maps.Marker({
-           position: {lat: lat, lng: lng},
+           position: {lat: parseFloat(lat), lng: parseFloat(lng)},
            map: map,
            draggable: true,
          });
@@ -19,5 +19,9 @@ function initMap() {
              lng = evt.latLng.lng().toString();
              console.log(lng);
          });
-
        }
+
+function updateMap(){
+  console.log("yo");
+  map.setCenter({lat:parseFloat(lat),lng:parseFloat(lng)});
+}
