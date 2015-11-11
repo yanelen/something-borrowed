@@ -1,8 +1,3 @@
-<% if flash[:message] %>
-  <div class="alert">
-    <%= flash[:message] %>
-  </div>
-<% end %>
 
 <!--This is where the search bar, filters, and create button live-->
 <nav class="blog-nav">
@@ -13,7 +8,7 @@
   <a ng-click="mainCtrl.toggleForm(true)" data-toggle="collapse" data-target="#form" class="blog-nav-item" href="#">+ Add an item</a>
   <div class="search">
     <div class="form-group">
-      <input class="form-control" type="text" placeholder="Search" maxlength="70">
+      <input ng-model="searchText" class="form-control" type="text" placeholder="Search" maxlength="70">
     </div>
   </div>
 </nav><!--END OF APP NAVIGATION -->
@@ -22,11 +17,13 @@
   <!--This form adds new listings to the DB -->
   <!--This form will show when a user clicks on the add listing-->
     <form ng-show="mainCtrl.formStatus" id="form" class="collapse">
+    <form ng-controller="ItemController as itemCtrl" ng-submit="itemCtrl.addItem() "ng-show="mainCtrl.formStatus">
       <div class="add-post">
         <div ng-click="mainCtrl.toggleForm(false)" class="close" data-toggle="collapse" data-target="#form">&#10005;</div>
           <div class="form-group">
-            <input type="text" class="form-control" required maxlength="70" placeholder="Item name"><br/>
-            <textarea class="form-control" rows="3" required maxlength="1000" placeholder="Item description"></textarea><br/>
+            <input ng-model="itemCtrl.newItemTitle" type="text" class="form-control" required maxlength="70" placeholder="Item name"><br/>
+            <textarea ng-model="itemCtrl.newItemDescription" class="form-control" rows="3" required maxlength="1000" placeholder="Item description"></textarea><br/>
+            <div style="height: 200px; width: 100%;" id="map"></div>
             <div class="button">
               <input type="submit" value="Submit" class="btn btn-small">
             </div>
@@ -39,7 +36,7 @@
   <!-- available items -->
   <main ng-controller="ItemController as itemCtrl">
   	<section ng-show="mainCtrl.filter === 'availableItems'">
-  		<div ng-repeat="item in itemCtrl.itemList" ng-show="item.available && item.user_id != mainCtrl.currentUser.user_id">
+  		<div ng-repeat="item in itemCtrl.itemList | filter:searchText" ng-show="item.available && item.user_id != mainCtrl.currentUser.user_id">
   			<p class="title">{{item.title}}</p>
   			<p class="description">{{item.description}}</p>
         <div class="button">
@@ -48,13 +45,13 @@
         <hr>
       </div>
       <map zoom="12" center="40.7, -73.9">
-        <marker ng-repeat="item in itemCtrl.itemList" ng-if="item.available && item.user_id != mainCtrl.currentUser.user_id" position="[{{item.latitude}}, {{item.longitude}}]" on-click=""></marker>
+        <marker ng-repeat="item in itemCtrl.itemList | filter:searchText" ng-if="item.available && item.user_id != mainCtrl.currentUser.user_id" position="[{{item.latitude}}, {{item.longitude}}]" on-click=""></marker>
       </map>
   	</section>
 
 
   	<!--my borrowed items -->
-  	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'borrowedItems'">
+  	<section ng-repeat="item in itemCtrl.itemList | filter:searchText" ng-show="mainCtrl.filter === 'borrowedItems'">
   		<div ng-show="item.borrower_id === mainCtrl.currentUser.user_id">
         <p class="title">{{item.title}}</p>
         <p class="description">{{item.description}}</p>
@@ -82,7 +79,7 @@
   	</section>
 
   	<!--my lent items -->
-  	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'leantItems'">
+  	<section ng-repeat="item in itemCtrl.itemList | filter:searchText" ng-show="mainCtrl.filter === 'leantItems'">
   		<div ng-show="item.borrower_id && item.user_id === mainCtrl.currentUser.user_id">
   			<p class="title">{{item.title}}</p>
   			<p class="description">{{item.description}}</p>
@@ -107,13 +104,13 @@
   	</section>
 
   	<!--my listed items -->
-  	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'listedItems'">
+  	<section ng-repeat="item in itemCtrl.itemList | filter:searchText" ng-show="mainCtrl.filter === 'listedItems'">
   		<div ng-show="item.user_id === mainCtrl.currentUser.user_id && !borrower_id">
         <p class="title">{{item.title}}</p>
         <p class="description">{{item.description}}</p>
         <div class="button">
-          <a href="#" class="btn btn-small edit" >Edit</a>
-          <a href="#" class="btn btn-small">Delete</a>
+          <button class="btn btn-small edit" >Edit</button>
+          <button class="btn btn-small">Delete</button>
         </div>
         <hr>
   		</div>
