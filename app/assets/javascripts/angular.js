@@ -64,10 +64,36 @@ itemCtrl.addItem = function(){
 			longitude: lng
 		}
 	}).success(function(data){
-		console.log("yes!");
+		itemCtrl.newItemTitle = ""
+		itemCtrl.newItemDescription = ""
+		$scope.$parent.mainCtrl.toggleForm(false)
 		itemCtrl.getItems();
 	});
 };
+
+//This is triggered when a user chooses to borrow an item, setting
+//their id to the borrower_id of that item, and setting the avialable property
+//to false for that item
+itemCtrl.borrowItem = function(item){
+	newBorrowerId = $scope.$parent.mainCtrl.currentUser.user_id;
+	for(var i=0; i < itemCtrl.itemList.length; i ++){
+		if(itemCtrl.itemList[i].id === item.id){
+			itemCtrl.itemList[i].available = false;
+			itemCtrl.itemList[i].borrower_id = newBorrowerId;
+		}
+	};
+
+	$http.patch('/posts/' + item.id, {
+		authenticity_token: authenticity_token,
+		post: {
+			available: false,
+			borrower_id: newBorrowerId
+		}
+	}).success(function(data){
+		console.log('item successfully edited')
+	})
+};
+
 
 }]);
 
