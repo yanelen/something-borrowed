@@ -34,9 +34,6 @@ app.controller('MainController', ['$http', function($http){
 		mainCtrl.formStatus = status;
 	};
 
-
-	//Once routes are set, GET request to '/session' will set MainController.currentUser = data.currentUser
-
 }]);
 
 //This is the item controller which makes an AJAX call to /posts
@@ -51,9 +48,10 @@ itemCtrl.getItems = function(){$http.get('/posts').success(function(data){
 	});
 };
 
-//Makes AJAX request to get all posts
+//Calls function to make AJAX request to get all posts
 itemCtrl.getItems();
 
+//Add item to database 
 itemCtrl.addItem = function(){
 	$http.post('/posts', {
 		authenticity_token: authenticity_token,
@@ -92,6 +90,10 @@ itemCtrl.borrowItem = function(item){
 	}).success(function(data){
 		console.log('item successfully edited')
 	})
+};
+
+itemCtrl.returnItem = function(item){
+console.log(item)
 };
 
 
