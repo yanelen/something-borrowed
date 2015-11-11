@@ -3,7 +3,7 @@ TO AVOID POLLUTING THE GLOBAL SCOPE AND KEEP
  THINGS NICE AND CONTAINED **/
 
 (function(){
-var app = angular.module('SomethingBorrowed', ['ngAnimate', 'ngMap']);
+var app = angular.module('SomethingBorrowed', ['ngAnimate']);
 
 //This is the main controller which wraps the entire application
 //providing access to the current user, and control over the view
@@ -22,6 +22,11 @@ app.controller('MainController', ['$http', function($http){
 		console.log(filter);
 		mainCtrl.filter = filter;
 
+	};
+
+	mainCtrl.loadMapCoor = function(){
+		console.log("works");
+		initMap();
 	};
 
 	mainCtrl.toggleForm = function(status){
@@ -45,38 +50,8 @@ itemCtrl.getItems = function(){$http.get('/posts').success(function(data){
 	});
 };
 
-//Makes AJAX request to get all posts 
+//Makes AJAX request to get all posts
 itemCtrl.getItems();
-
-itemCtrl.beginMap = function initMap() {
-      console.log('somehting is happening')
-         var myLatLng = {lat: 40.738688, lng: -73.993250};
-         var map = new google.maps.Map(document.getElementById('map'), {
-           zoom: 13,
-           center: myLatLng
-         });
-         var marker = new google.maps.Marker({
-           position: myLatLng,
-           map: map,
-           draggable: true,
-         });
-         var infowindow = new google.maps.InfoWindow({
-           content: "HELLO"
-         });
-         google.maps.event.addListener(marker, 'dragend', function (evt) {
-             console.log(itemCtrl)
-             $scope.itemCtrl.lat = evt.latLng.lat();
-             $scope.itemCtrl.lng = evt.latLng.lng();
-             console.log($scope)
-         });
-         marker.addListener('click', function() {
-           infowindow.open(map, marker);
-         });
-       };
-
- itemCtrl.beginMap();
-
-
 
 itemCtrl.addItem = function(){
 	$http.post('/posts', {
@@ -84,13 +59,13 @@ itemCtrl.addItem = function(){
 		post: {
 			title: itemCtrl.newItemTitle,
 			description: itemCtrl.newItemDescription,
-			latitude: $scope.$$nextSibling.itemCtrl.lat.toString(),
-			longitude: $scope.$$nextSibling.itemCtrl.lng.toString()
+			latitude: lat,
+			longitude: lng
 		}
 	}).success(function(data){
 		console.log("yes!");
 		itemCtrl.getItems();
-	})
+	});
 };
 
 }]);
