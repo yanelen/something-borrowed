@@ -48,7 +48,8 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    return params.require(:post)
-            .permit(:borrower_id, :title, :description, :latitude, :longitude, :available)
+
+    params.require(:post).permit(:borrower_id, :title, :description, :latitude, :longitude, :available)
+
   end
 end
