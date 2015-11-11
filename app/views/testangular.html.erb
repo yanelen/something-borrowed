@@ -37,17 +37,19 @@
   <div class="post">
     <div class="posts">
     <!-- available items -->
-    <main ng-controller="ItemController as itemCtrl">
-    	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'availableItems'">
-    		<div ng-show="item.available && item.user_id != mainCtrl.currentUser.user_id">
-    			<p class="title">{{item.title}}</p>
-    			<p class="description">{{item.description}}</p>
-          <div class="button">
-            <a href="#" class="btn btn-small" >Borrow me</a>
-          </div>
-          <hr>
+    <section ng-show="mainCtrl.filter === 'availableItems'">
+  		<div ng-repeat="item in itemCtrl.itemList" ng-show="item.available && item.user_id != mainCtrl.currentUser.user_id">
+  			<p class="title">{{item.title}}</p>
+  			<p class="description">{{item.description}}</p>
+        <div class="button">
+          <a href="#" class="btn btn-small">Borrow me</a>
         </div>
-    	</section>
+        <hr>
+      </div>
+      <map zoom="12" center="40.7, -73.9">
+        <marker ng-repeat="item in itemCtrl.itemList" ng-if="item.available && item.user_id != mainCtrl.currentUser.user_id" position="[{{item.latitude}}, {{item.longitude}}]" on-click=""></marker>
+      </map>
+  	</section>
 
     	<!--my borrowed items -->
     	<section ng-repeat="item in itemCtrl.itemList" ng-show="mainCtrl.filter === 'borrowedItems'">
