@@ -37,6 +37,7 @@ app.controller('MainController', ['$http', function($http){
 //getting all relevant data, which will then be filtered using angular in the view
 app.controller('ItemController', ['$http', '$scope', function($http, $scope){
 	var itemCtrl = this;
+	var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
 itemCtrl.getItems = function(){$http.get('/posts').success(function(data){
 		itemCtrl.itemList = data.posts;
@@ -78,10 +79,19 @@ itemCtrl.beginMap = function initMap() {
 
 
 itemCtrl.addItem = function(){
-	console.log($scope.$$nextSibling.itemCtrl.lat)
-	console.log($scope.$$nextSibling.itemCtrl.lng)
+	$http.post('/posts', {
+		authenticity_token: authenticity_token,
+		post: {
+			title: itemCtrl.newItemTitle,
+			description: itemCtrl.newItemDescription,
+			latitude: $scope.$$nextSibling.itemCtrl.lat.toString(),
+			longitude: $scope.$$nextSibling.itemCtrl.lng.toString()
+		}
+	}).success(function(data){
+		console.log("yes!");
+		itemCtrl.getItems();
+	})
 };
-
 
 }]);
 
