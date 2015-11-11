@@ -21,8 +21,9 @@ class SessionController < ApplicationController
   end
 
   def destroy
+    log_out!
 
-    redirect_to "http://www.amazon.com/"
+    redirect_to root_path
   end
 
   def user_current
