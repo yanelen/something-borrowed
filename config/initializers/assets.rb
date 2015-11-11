@@ -9,4 +9,4 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 
-Rails.application.config.assets.precompile += %w( angular.js googlemaps.js bootstrap.min.css ie-emulation-modes-warning.js ie-emulation-modes-warning.js ie10-viewport-bug-workaround.js blog.css bootstrap.min.js )
+Rails.application.config.assets.precompile += %w( angular.js googlemaps.js bootstrap.min.css ie-emulation-modes-warning.js ie-emulation-modes-warning.js ie10-viewport-bug-workaround.js blog.css bootstrap.min.js googlemaps.js)
