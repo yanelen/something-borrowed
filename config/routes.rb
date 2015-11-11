@@ -3,8 +3,7 @@ Rails.application.routes.draw do
 
   get 'application/home'
 
-  resources :posts, only: [:index, :create, :update, :destroy],
-  defaults: { format: :json } do
+  resources :posts, defaults: { format: :json } do
     resources :comments, only: [:create], shallow: true
   end
 

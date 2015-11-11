@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   before_action :require_current_user
 
   def testangular
@@ -24,11 +25,11 @@ class PostsController < ApplicationController
   end
 
   def update
-    post = Post.find_by(post_id: params[:post_id])
-    @post = post.update(post_params)
+    @post = Post.find(params[:id])
 
-    if @post.save
-
+    if @post.update(post_params)
+      @post.save
+      render json: @post
     else
       render json: {
         error: {
@@ -39,14 +40,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find_by(post_id: params[:post_id])
-    post.destroy
+    @post = Post.find(params[:id])
+    @post.destroy
   end
 
   private
 
   def post_params
-    return params.require(:post)
-            .permit(:title, :description)
+    params.require(:post).permit(:borrower_id, :title, :description, :latitude, :longitude, :available)
   end
 end
