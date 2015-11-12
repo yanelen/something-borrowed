@@ -17,6 +17,7 @@ app.controller('MainController', ['$http', function($http){
 
 	mainCtrl.filter = "availableItems";
 	mainCtrl.formStatus = false;
+	mainCtrl.formStatus2 = false;
 
 	mainCtrl.filterAs = function(filter){
 		console.log(filter);
@@ -33,6 +34,12 @@ app.controller('MainController', ['$http', function($http){
 	mainCtrl.toggleForm = function(status){
 		mainCtrl.formStatus = status;
 	};
+
+	mainCtrl.toggleForm2 = function(status){
+		mainCtrl.formStatus2 = status;
+	};
+
+
 
 
 	//Once routes are set, GET request to '/session' will set MainController.currentUser = data.currentUser
@@ -70,6 +77,7 @@ itemCtrl.addItem = function(){
 		itemCtrl.getItems();
 	});
 };
+
 
 //This is triggered when a user chooses to borrow an item, setting
 //their id to the borrower_id of that item, and setting the avialable property

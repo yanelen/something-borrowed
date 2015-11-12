@@ -17,15 +17,18 @@
   <!--This form will show when a user clicks on the add listing-->
     <form ng-controller="ItemController as itemCtrl" ng-submit="itemCtrl.addItem()" ng-show="mainCtrl.formStatus" id="form" class="collapse">
       <div class="add-post">
-        <div ng-click="mainCtrl.toggleForm(false)" class="close" data-toggle="collapse" data-target="#form">&#10005;</div>
-          <div class="form-group">
-            <input ng-model="itemCtrl.newItemTitle" type="text" class="form-control" required maxlength="70" placeholder="Item name"><br/>
-            <textarea ng-model="itemCtrl.newItemDescription" class="form-control" rows="3" required maxlength="1000" placeholder="Item description"></textarea><br/>
-            <div id="map"></div>
-            <div class="button">
-              <input type="submit" value="Submit" class="btn btn-small">
-            </div>
+        <div ng-click="mainCtrl.toggleForm(false)" class="close" data-toggle="collapse" data-target="#form">
+          &#10005;
+        </div>
+        <div class="form-group">
+          <input ng-model="itemCtrl.newItemTitle" type="text" class="form-control" required maxlength="70" placeholder="Item name"><br/>
+          <textarea ng-model="itemCtrl.newItemDescription" class="form-control" rows="3" required maxlength="1000" placeholder="Item description"></textarea><br/>
+          <div id="map">
           </div>
+          <div class="button">
+            <input type="submit" value="Submit" class="btn btn-small">
+          </div>
+        </div>
       </div>
     </form><!-- END OF CREATE LISTING FORM -->
 
@@ -105,9 +108,25 @@
         <p class="title">{{item.title}}</p>
         <p class="description">{{item.description}}</p>
         <div class="button">
-          <button class="btn btn-small edit" >Edit</button>
+          <a ng-click="mainCtrl.toggleForm2(true)"  class="btn btn-small edit" data-toggle="collapse" data-target="#form2" href="#">Edit</a>
           <button class="btn btn-small">Delete</button>
         </div>
+        <br>
+        <form ng-controller="ItemController as itemCtrl" ng-submit="itemCtrl.addItem()" ng-show="mainCtrl.formStatus2" id="form2" class="collapse">
+          <div class="add-post">
+            <div ng-click="mainCtrl.toggleForm2(false)" class="close" data-toggle="collapse" data-target="#form2">
+              &#10005;
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" required maxlength="70" value ="{{item.title}}"><br/>
+              <textarea class="form-control" rows="3" required maxlength="1000">{{item.description}}</textarea><br/>
+              <div class="button">
+                <input type="submit" value="Submit" class="btn btn-small">
+              </div>
+            </div>
+          </div>
+        </form>
+
         <hr>
   		</div>
   	</section>
