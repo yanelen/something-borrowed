@@ -54,23 +54,25 @@
         <div class="button">
           <a href="#" ng-click="itemCtrl.returnItem(item)" class="btn btn-small">Return me</a>
         </div><br>
-        <table>
-          <tr>
-            <td>
-              <div class="user-message">
-                <%= image_tag 'user.png' %>
-              </div>
-            </td>
-            <td class="message">
-          		<form ng-submit = "itemCtrl.createComment(item.id, item.user_id)" class="form-group">
-          			<input class="form-control message" type="text" ng-model="itemCtrl.newComment"placeholder="Write a message to lender...">
-          		</form>
-            </td>
-          </tr>
-        </table>
-  			<div ng-repeat = "comment in item.comments" ><span class="sender">{{comment.user_id}}</span><span> </span><span>{{comment.comment}}</span></div>
-  			<small class="time">{{comment.created_at}}</small>
-        <hr>
+        <div ng-controller = "CommentsController as CommentCtrl">
+          <table>
+            <tr>
+              <td>
+                <div class="user-message">
+                  <%= image_tag 'user.png' %>
+                </div>
+              </td>
+              <td class="message">
+            		<form ng-submit = "CommentCtrl.createComment()" class="form-group">
+            			<input class="form-control message" type="text" ng-model="CommentCtrl.newComment"placeholder="Write a message to lender...">
+            		</form>
+              </td>
+            </tr>
+          </table>
+    			<div ng-repeat = "comment in item.comments" ><span class="sender">{{comment.user_id}}</span><span> </span><span>{{comment.comment}}</span></div>
+    			<small class="time">{{comment.created_at}}</small>
+          <hr>
+        </div>
   		</div>
   	</section>
 
