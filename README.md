@@ -33,16 +33,16 @@ Requisites: an internet connection and a browser on a desktop, a tablet or a mob
 
 ### Technology
 
-Ruby on Rails
-ActiveRecord
-PostgreSQL
-JavaScript
-Angular
-jQuery
-HTML
-CSS
-Photoshop
-Illustrator
+Ruby on Rails<br>
+ActiveRecord<br>
+PostgreSQL<br>
+JavaScript<br>
+Angular<br>
+jQuery<br>
+HTML<br>
+CSS<br>
+Photoshop<br>
+Illustrator<br>
 
 
 ### Developers Info
