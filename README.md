@@ -41,6 +41,8 @@ Angular
 jQuery
 HTML
 CSS
+Photoshop
+Illustrator
 
 
 ### Developers Info
@@ -49,3 +51,9 @@ The GitHub master was Casey Panzer. He created Google map API and some Angular. 
 
 
 ### Wireframe
+
+￼￼![wireframe](project3_wireframe.pdf)
+￼
+￼
+￼
+￼
