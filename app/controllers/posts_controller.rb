@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
 
-  # skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
-  before_action :require_current_user
+  # before_action :require_current_user
 
   def testangular
     render '/testangular', layout: "angularlayout"
@@ -43,6 +43,11 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+
+    respond_to do |format|
+      format.html { redirect_to testangular_path }
+      format.json { head :no_content }
+    end
   end
 
   private
