@@ -26,6 +26,7 @@ app.controller('MainController', ['$http', function($http){
 	mainCtrl.loadMapCoor = function(){
 		console.log("works");
 		initMap();
+		updateMap();
 	};
 
 	mainCtrl.toggleForm = function(status){
@@ -40,6 +41,47 @@ app.controller('ItemController', ['$http', '$scope', function($http, $scope){
 	var itemCtrl = this;
 	var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
+	itemCtrl.editFormStatus = null;
+
+itemCtrl.showEditForm = function(itemId){
+	itemCtrl.editFormStatus = itemId;
+};
+
+itemCtrl.editItem = function(item){
+	for(var i=0; i < itemCtrl.itemList.length; i ++){
+		if(itemCtrl.itemList[i].id === item.id){
+			itemCtrl.itemList[i].title = item.title;
+			itemCtrl.itemList[i].description = item.description;
+		}
+	}
+
+	$http.patch('/posts/' + item.id, {
+		authenticity_token: authenticity_token,
+		post: {
+			title: item.title,
+			description: item.description
+		}
+	}).success(function(data){
+		console.log('item successfully edited');
+	});
+};
+
+itemCtrl.deleteItem = function(item){
+	console.log(item.id);
+
+	for(var i=0; i < itemCtrl.itemList.length; i++){
+		if(itemCtrl.itemList[i].id === item.id){
+			console.log(i);
+			console.log(itemCtrl.itemList);
+			itemCtrl.itemList.splice(i, 1);
+			console.log(itemCtrl.itemList);
+		}
+	}
+	$http.delete('/posts/' + item.id, {authenticity_token:authenticity_token}).success(function(data){
+		console.log('Deleted!');
+	});
+};
+
 itemCtrl.getItems = function(){$http.get('/posts').success(function(data){
 		itemCtrl.itemList = data.posts;
 		console.log(itemCtrl.itemList);
@@ -51,7 +93,6 @@ itemCtrl.getItems();
 
 //Add item to database
 itemCtrl.addItem = function(){
-	console.log($scope);
 	$scope.$$nextSibling.itemCtrl.itemList.push({
 		title:itemCtrl.newItemTitle,
 		description:itemCtrl.newItemDescription,
@@ -69,12 +110,9 @@ itemCtrl.addItem = function(){
 			longitude: lng
 		}
 	}).success(function(data){
-		itemCtrl.newItemTitle = "";
-		itemCtrl.newItemDescription = "";
-		$('#map').empty();
-		$('#map').removeAttr('style');
-		map = null;
-		$scope.$parent.mainCtrl.toggleForm(false);
+		itemCtrl.newItemTitle = ""
+		itemCtrl.newItemDescription = ""
+		$scope.$parent.mainCtrl.toggleForm(false)
 		itemCtrl.getItems();
 	});
 };
@@ -89,7 +127,7 @@ itemCtrl.borrowItem = function(item){
 			itemCtrl.itemList[i].available = false;
 			itemCtrl.itemList[i].borrower_id = newBorrowerId;
 		}
-	}
+	};
 
 	$http.patch('/posts/' + item.id, {
 		authenticity_token: authenticity_token,
@@ -98,8 +136,8 @@ itemCtrl.borrowItem = function(item){
 			borrower_id: newBorrowerId
 		}
 	}).success(function(data){
-		console.log('item successfully edited');
-	});
+		console.log('item successfully edited')
+	})
 };
 
 itemCtrl.returnItem = function(item){
@@ -152,5 +190,7 @@ app.controller('CommentsController', ['$http', '$scope', function($http, $scope)
 	};
 
 }]);
+
+
 
 })();
