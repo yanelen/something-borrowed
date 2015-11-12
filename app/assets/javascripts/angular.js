@@ -123,14 +123,23 @@ itemCtrl.returnItem = function(item){
 });
 };
 
-itemCtrl.createComment = function(post_id){
-	console.log(post_id);
-	console.log("this worked");
-}
+itemCtrl.createComment = function(post_id, user_id){
+
+	$http.post('/posts/'+post_id+'/comments', {
+		authenticity_token: authenticity_token,
+		comment: {
+			post_id: post_id,
+			comment: this.newComment,
+			user_id: user_id
+		}
+	}).success(function(data){
+		console.log(data);
+		itemCtrl.getItems();
+	});
+
+};
 
 
 }]);
 
 })();
-
-// /posts/:post_id/comments

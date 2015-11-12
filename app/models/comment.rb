@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  validates :description, presence: true
+  validates :comment, presence: true
 
   belongs_to :post
   delegate :user, to: :post

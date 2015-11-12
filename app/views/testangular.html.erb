@@ -62,14 +62,14 @@
               </div>
             </td>
             <td class="message">
-          		<form ng-submit = "itemCtrl.createComment(item.id)" class="form-group">
+          		<form ng-submit = "itemCtrl.createComment(item.id, item.user_id)" class="form-group">
           			<input class="form-control message" type="text" ng-model="itemCtrl.newComment"placeholder="Write a message to lender...">
           		</form>
             </td>
           </tr>
         </table>
-  			<div><span class="sender">Sender</span><span> message</span></div>
-  			<small class="time">time stamp</small>
+  			<div ng-repeat = "comment in item.comments" ><span class="sender">{{comment.user_id}}</span><span> </span><span>{{comment.comment}}</span></div>
+  			<small class="time">{{comment.created_at}}</small>
         <hr>
   		</div>
   	</section>
