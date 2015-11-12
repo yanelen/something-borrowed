@@ -50,7 +50,7 @@ Illustrator<br><br>
 
 ### Developers Info
 
-The GitHub master was Casey Panzer. He created Google map API and some Angular. Ruby on Rails was created by Edwin Choi. Angular was created by Sebastian Odell. The graphic and CSS were created by Yanelen Huang. It's the third project in Web Development Immersive at General Assembly New York in November 2015.
+The GitHub master was Casey Panzer. He created Google map API and some Angular. Ruby on Rails was created by Edwin Choi. Angular was created by Sebastian Odell. The graphic and CSS were created by Yanelen Huang. This is the third project in Web Development Immersive at General Assembly New York in November 2015.
 <br><br>
 
 
