@@ -62,8 +62,8 @@
               </div>
             </td>
             <td class="message">
-          		<form class="form-group">
-          			<input class="form-control message" type="text" placeholder="Write a message to lender...">
+          		<form ng-submit = "itemCtrl.createComment(item.id)" class="form-group">
+          			<input class="form-control message" type="text" ng-model="itemCtrl.newComment"placeholder="Write a message to lender...">
           		</form>
             </td>
           </tr>

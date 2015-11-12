@@ -123,7 +123,14 @@ itemCtrl.returnItem = function(item){
 });
 };
 
+itemCtrl.createComment = function(post_id){
+	console.log(post_id);
+	console.log("this worked");
+}
+
 
 }]);
 
 })();
+
+// /posts/:post_id/comments
