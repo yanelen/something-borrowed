@@ -26,7 +26,6 @@ app.controller('MainController', ['$http', function($http){
 	mainCtrl.loadMapCoor = function(){
 		console.log("works");
 		initMap();
-		updateMap();
 	};
 
 	mainCtrl.toggleForm = function(status){
@@ -50,9 +49,9 @@ itemCtrl.getItems = function(){$http.get('/posts').success(function(data){
 //Calls function to make AJAX request to get all posts
 itemCtrl.getItems();
 
-//Add item to database 
+//Add item to database
 itemCtrl.addItem = function(){
-	console.log($scope)
+	console.log($scope);
 	$scope.$$nextSibling.itemCtrl.itemList.push({
 		title:itemCtrl.newItemTitle,
 		description:itemCtrl.newItemDescription,
@@ -70,9 +69,12 @@ itemCtrl.addItem = function(){
 			longitude: lng
 		}
 	}).success(function(data){
-		itemCtrl.newItemTitle = ""
-		itemCtrl.newItemDescription = ""
-		$scope.$parent.mainCtrl.toggleForm(false)
+		itemCtrl.newItemTitle = "";
+		itemCtrl.newItemDescription = "";
+		$('#map').empty();
+		$('#map').removeAttr('style');
+		map = null;
+		$scope.$parent.mainCtrl.toggleForm(false);
 		itemCtrl.getItems();
 	});
 };
@@ -87,7 +89,7 @@ itemCtrl.borrowItem = function(item){
 			itemCtrl.itemList[i].available = false;
 			itemCtrl.itemList[i].borrower_id = newBorrowerId;
 		}
-	};
+	}
 
 	$http.patch('/posts/' + item.id, {
 		authenticity_token: authenticity_token,
@@ -96,8 +98,8 @@ itemCtrl.borrowItem = function(item){
 			borrower_id: newBorrowerId
 		}
 	}).success(function(data){
-		console.log('item successfully edited')
-	})
+		console.log('item successfully edited');
+	});
 };
 
 itemCtrl.returnItem = function(item){
@@ -106,7 +108,7 @@ itemCtrl.returnItem = function(item){
 			itemCtrl.itemList[i].available = true;
 			itemCtrl.itemList[i].borrower_id = null;
 		}
-	};
+	}
 
 	$http.patch('/posts/' + item.id, {
 	authenticity_token: authenticity_token,
@@ -116,9 +118,9 @@ itemCtrl.returnItem = function(item){
 	}
 }).success(function(data){
 	$http.delete('/comments/' + item.id).success(function(data){
-		console.log('great success!')
-	})
-})
+		console.log('great success!');
+	});
+});
 };
 
 
