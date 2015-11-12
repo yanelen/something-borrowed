@@ -117,10 +117,15 @@ itemCtrl.returnItem = function(item){
 		borrower_id: null
 	}
 }).success(function(data){
-	$http.delete('/comments/' + item.id).success(function(data){
-		console.log('great success!');
-	});
+
 });
+
+$http.delete('/comments/' + item.id, {
+	authenticity_token: authenticity_token,
+}).success(function(data){
+	console.log('works');
+});
+
 };
 
 }]);

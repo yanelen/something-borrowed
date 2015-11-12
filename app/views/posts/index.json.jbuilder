@@ -14,5 +14,6 @@ json.posts(@posts) do |pos|
     json.user_id comm.user_id
     json.comment comm.comment
     json.created_at comm.created_at
+    json.username comm.username
   end
 end

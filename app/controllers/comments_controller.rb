@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+
+  # skip_before_action :verify_authenticity_token
+
   def create
     post = Post.find(params[:post_id])
 
@@ -16,9 +19,18 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    comment = Comment.where(params[:post_id])
-    comment.destroy
+    puts "DESTROY METHOD!!!!!!!!!!!!"
+    comments = Comment.where(params[:post_id])
+    comments.each do |comment|
+      comment.destroy
+    end
+
+    respond_to do |format|
+      format.html { redirect_to testangular_path }
+      format.json { head :no_content }
+    end
   end
+
 
   private
 
