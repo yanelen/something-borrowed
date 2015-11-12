@@ -16,8 +16,6 @@ app.controller('MainController', ['$http', function($http){
 	});
 
 	mainCtrl.filter = "availableItems";
-	mainCtrl.formStatus = false;
-	mainCtrl.formStatus2 = false;
 
 	mainCtrl.filterAs = function(filter){
 		console.log(filter);
@@ -32,11 +30,9 @@ app.controller('MainController', ['$http', function($http){
 	};
 
 	mainCtrl.toggleForm = function(status){
-		mainCtrl.formStatus = status;
 	};
 
 	mainCtrl.toggleForm2 = function(status){
-		mainCtrl.formStatus2 = status;
 	};
 
 

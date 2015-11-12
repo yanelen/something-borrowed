@@ -15,7 +15,7 @@
 <div class="container2">
   <!--This form adds new listings to the DB -->
   <!--This form will show when a user clicks on the add listing-->
-    <form ng-controller="ItemController as itemCtrl" ng-submit="itemCtrl.addItem()" ng-show="mainCtrl.formStatus" id="form" class="collapse">
+    <form ng-controller="ItemController as itemCtrl" ng-submit="itemCtrl.addItem()" id="form" class="collapse">
       <div class="add-post">
         <div ng-click="mainCtrl.toggleForm(false)" class="close" data-toggle="collapse" data-target="#form">
           &#10005;
@@ -112,7 +112,7 @@
           <button class="btn btn-small">Delete</button>
         </div>
         <br>
-        <form ng-controller="ItemController as itemCtrl" ng-submit="itemCtrl.addItem()" ng-show="mainCtrl.formStatus2" id="form2" class="collapse">
+        <form ng-submit="itemCtrl.deleteItem()" id="form2" class="collapse">
           <div class="add-post">
             <div ng-click="mainCtrl.toggleForm2(false)" class="close" data-toggle="collapse" data-target="#form2">
               &#10005;
