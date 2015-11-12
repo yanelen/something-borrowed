@@ -93,7 +93,24 @@ itemCtrl.borrowItem = function(item){
 };
 
 itemCtrl.returnItem = function(item){
-console.log(item)
+	for(var i=0; i < itemCtrl.itemList.length; i ++){
+		if(itemCtrl.itemList[i].id === item.id){
+			itemCtrl.itemList[i].available = true;
+			itemCtrl.itemList[i].borrower_id = null;
+		}
+	};
+
+	$http.patch('/posts/' + item.id, {
+	authenticity_token: authenticity_token,
+	post: {
+		available: true,
+		borrower_id: null
+	}
+}).success(function(data){
+	$http.delete('/comments/' + item.id).success(function(data){
+		console.log('great success!')
+	})
+})
 };
 
 
