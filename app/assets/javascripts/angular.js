@@ -21,7 +21,6 @@ app.controller('MainController', ['$http', function($http){
 	mainCtrl.filterAs = function(filter){
 		console.log(filter);
 		mainCtrl.filter = filter;
-
 	};
 
 	mainCtrl.loadMapCoor = function(){
@@ -53,6 +52,15 @@ itemCtrl.getItems();
 
 //Add item to database 
 itemCtrl.addItem = function(){
+	console.log($scope)
+	$scope.$$nextSibling.itemCtrl.itemList.push({
+		title:itemCtrl.newItemTitle,
+		description:itemCtrl.newItemDescription,
+		available: true,
+		user_id: $scope.$parent.mainCtrl.currentUser.user_id,
+		borrower_id: null,
+		id: itemCtrl.itemList.length+1,
+	});
 	$http.post('/posts', {
 		authenticity_token: authenticity_token,
 		post: {
