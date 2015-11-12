@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy], shallow: true
   end
 
-
   get '/testangular' => 'posts#testangular'
   get '/signup' => 'users#signup'
 

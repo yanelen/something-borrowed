@@ -74,3 +74,22 @@ posts = Post.create(
 		available: true
 	}
 ]);
+
+comments = Comment.create(
+[
+	{
+		post_id: 2,
+		user_id: 1,
+		comment: 'hi'
+	},
+	{
+		post_id: 2,
+		user_id: 2,
+		comment: 'hey'
+	},
+	{
+		post_id: 1,
+		user_id: 1,
+		comment: 'this is a test'
+	}
+]);
