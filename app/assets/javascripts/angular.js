@@ -116,6 +116,4 @@ itemCtrl.returnItem = function(item){
 
 }]);
 
-
-
 })();

@@ -113,10 +113,6 @@ header {
   margin: 7px;
 }
 
-.logo-s img {
-  width: 100px;
-}
-
 .user {
   display: inline-block;
   font-size: 15px;
@@ -140,7 +136,7 @@ header {
   top: 3px;
   background:none;
   border:none;
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
 .logout:hover {
