@@ -45,7 +45,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to testangular_path }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end

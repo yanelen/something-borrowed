@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to testangular_path }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end

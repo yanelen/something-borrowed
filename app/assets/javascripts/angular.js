@@ -107,6 +107,7 @@ itemCtrl.returnItem = function(item){
 		if(itemCtrl.itemList[i].id === item.id){
 			itemCtrl.itemList[i].available = true;
 			itemCtrl.itemList[i].borrower_id = null;
+			itemCtrl.itemList[i].comments = [];
 		}
 	}
 
@@ -114,16 +115,17 @@ itemCtrl.returnItem = function(item){
 	authenticity_token: authenticity_token,
 	post: {
 		available: true,
-		borrower_id: null
+		borrower_id: null,
 	}
 }).success(function(data){
 
-});
+	$http.delete('/comments/' + item.id, {
+		authenticity_token: authenticity_token,
+	}).success(function(data){
+		console.log('works');
+	});
 
-$http.delete('/comments/' + item.id, {
-	authenticity_token: authenticity_token,
-}).success(function(data){
-	console.log('works');
+
 });
 
 };
@@ -134,7 +136,7 @@ app.controller('CommentsController', ['$http', '$scope', function($http, $scope)
 
 	this.createComment = function(){
 			var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-		console.log($scope.$parent.$parent.$parent.mainCtrl.currentUser.username);
+
 		$http.post('/posts/'+$scope.$parent.item.id+'/comments', {
 			authenticity_token: authenticity_token,
 			comment: {
