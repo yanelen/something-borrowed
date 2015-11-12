@@ -51,7 +51,7 @@ itemCtrl.getItems = function(){$http.get('/posts').success(function(data){
 //Calls function to make AJAX request to get all posts
 itemCtrl.getItems();
 
-//Add item to database 
+//Add item to database
 itemCtrl.addItem = function(){
 	$http.post('/posts', {
 		authenticity_token: authenticity_token,
@@ -99,7 +99,6 @@ itemCtrl.returnItem = function(item){
 			itemCtrl.itemList[i].borrower_id = null;
 		}
 	};
-
 	$http.patch('/posts/' + item.id, {
 	authenticity_token: authenticity_token,
 	post: {
@@ -107,10 +106,17 @@ itemCtrl.returnItem = function(item){
 		borrower_id: null
 	}
 }).success(function(data){
-	$http.delete('/comments/' + item.id).success(function(data){
-		console.log('great success!')
-	})
+	console.log(item.id);
 })
+
+
+$http.delete('/comments/' + item.id, {
+	authenticity_token: authenticity_token,
+}).success(function(data){
+	console.log('works');
+})
+
+
 };
 
 
