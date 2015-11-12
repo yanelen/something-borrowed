@@ -15,20 +15,17 @@
 <div class="container2">
   <!--This form adds new listings to the DB -->
   <!--This form will show when a user clicks on the add listing-->
-    <form ng-controller="ItemController as itemCtrl" ng-submit="itemCtrl.addItem()" id="form" class="collapse">
+    <form ng-controller="ItemController as itemCtrl" ng-submit="itemCtrl.addItem()" ng-show="mainCtrl.formStatus" id="form" class="collapse">
       <div class="add-post">
-        <div ng-click="mainCtrl.toggleForm(false)" class="close" data-toggle="collapse" data-target="#form">
-          &#10005;
-        </div>
-        <div class="form-group">
-          <input ng-model="itemCtrl.newItemTitle" type="text" class="form-control" required maxlength="70" placeholder="Item name"><br/>
-          <textarea ng-model="itemCtrl.newItemDescription" class="form-control" rows="3" required maxlength="1000" placeholder="Item description"></textarea><br/>
-          <div id="map">
+        <div ng-click="mainCtrl.toggleForm(false)" class="close" data-toggle="collapse" data-target="#form">&#10005;</div>
+          <div class="form-group">
+            <input ng-model="itemCtrl.newItemTitle" type="text" class="form-control" required maxlength="70" placeholder="Item name"><br/>
+            <textarea ng-model="itemCtrl.newItemDescription" class="form-control" rows="3" required maxlength="1000" placeholder="Item description"></textarea><br/>
+            <div id="map"></div>
+            <div class="button">
+              <input type="submit" value="Submit" class="btn btn-small">
+            </div>
           </div>
-          <div class="button">
-            <input type="submit" value="Submit" class="btn btn-small">
-          </div>
-        </div>
       </div>
     </form><!-- END OF CREATE LISTING FORM -->
 
@@ -108,10 +105,21 @@
         <p class="title">{{item.title}}</p>
         <p class="description">{{item.description}}</p>
         <div class="button">
-          <button class="btn btn-small edit">Edit</button>
-          <button class="btn btn-small">Delete</button>
+          <button ng-click="itemCtrl.showEditForm(item.id)" class="btn btn-small edit" >Edit</button>
+          <button ng-click="itemCtrl.deleteItem(item)" class="btn btn-small">Delete</button>
         </div>
         <br>
+        <form ng-submit="itemCtrl.editItem(item)" ng-show="itemCtrl.editFormStatus === item.id" >
+          <div class="add-post">
+            <div class="form-group">
+              <input ng-model="item.title" type="text" class="form-control" required maxlength="70"><br>
+              <textarea ng-model="item.description" class="form-control" rows="3" required maxlength="1000"></textarea>
+              <div class="button"><br>
+                <input type="submit" value="Submit" class="btn btn-small">
+              </div>
+            </div>
+          </div>
+        </form>
         <hr>
   		</div>
   	</section>
