@@ -3,8 +3,8 @@ var lat = "40.738688",
 
 var map;
 function initMap() {
-
-      setTimeout(function(){console.log('initMap is Running');
+    setTimeout(function(){
+      console.log('initMap is Running');
           map = new google.maps.Map(document.getElementById('map'), {
            zoom: 13,
            center: {lat: parseFloat(lat), lng: parseFloat(lng)}
@@ -20,10 +20,6 @@ function initMap() {
              lng = evt.latLng.lng().toString();
              console.log(lng);
          });
-       }, 10)
-      }
 
-function updateMap(){
-  console.log("yo");
-  map.setCenter({lat:parseFloat(lat),lng:parseFloat(lng)});
-}
+       }, 10);
+      }
