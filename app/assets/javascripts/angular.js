@@ -63,6 +63,7 @@ itemCtrl.editItem = function(item){
 		}
 	}).success(function(data){
 		console.log('item successfully edited');
+		itemCtrl.showEditForm(null);
 	});
 };
 
@@ -110,9 +111,9 @@ itemCtrl.addItem = function(){
 			longitude: lng
 		}
 	}).success(function(data){
-		itemCtrl.newItemTitle = ""
-		itemCtrl.newItemDescription = ""
-		$scope.$parent.mainCtrl.toggleForm(false)
+		itemCtrl.newItemTitle = "";
+		itemCtrl.newItemDescription = "";
+		$scope.$parent.mainCtrl.toggleForm(false);
 		itemCtrl.getItems();
 	});
 };
@@ -127,7 +128,7 @@ itemCtrl.borrowItem = function(item){
 			itemCtrl.itemList[i].available = false;
 			itemCtrl.itemList[i].borrower_id = newBorrowerId;
 		}
-	};
+	}
 
 	$http.patch('/posts/' + item.id, {
 		authenticity_token: authenticity_token,
@@ -136,8 +137,8 @@ itemCtrl.borrowItem = function(item){
 			borrower_id: newBorrowerId
 		}
 	}).success(function(data){
-		console.log('item successfully edited')
-	})
+		console.log('item successfully edited');
+	});
 };
 
 itemCtrl.returnItem = function(item){
