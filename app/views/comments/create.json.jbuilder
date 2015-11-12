@@ -5,4 +5,5 @@ json.comment do
   json.user_id @comment.user_id
   json.comment @comment.comment
   json.created_at @comment.created_at
+  json.username @comment.username
 end
