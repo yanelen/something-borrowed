@@ -1,8 +1,9 @@
-## Something Borrowed
+￼￼![wireframe](wireframe/logo.png)
 
 Something Borrowed version 1.0 11/13/15
 
 The app is visible at: http://still-sea-2278.herokuapp.com
+<br>
 
 
 ### Overview
@@ -22,6 +23,7 @@ The app is preceded by signing up or logging in. It will then take the user to a
 The user can create a new post by clicking '+ Add an item'. A form then comes up with 'item name' and 'item description' fields, as well as a map where the user can pin the general location of the item.
 
 There's a search button where the user can search by item for things they would like to borrow.
+<br>
 
 
 ### Getting Started
@@ -29,6 +31,7 @@ There's a search button where the user can search by item for things they would 
 Installation: no installation necessary.
 
 Requisites: an internet connection and a browser on a desktop, a tablet or a mobile phone.
+<br>
 
 
 ### Technology
@@ -43,11 +46,13 @@ HTML<br>
 CSS<br>
 Photoshop<br>
 Illustrator<br>
+<br>
 
 
 ### Developers Info
 
 The GitHub master was Casey Panzer. He created Google map API and some Angular. Ruby on Rails was created by Edwin Choi. Angular was created by Sebastian Odell. The graphic and CSS was created by Yanelen Huang. It's the third project in Web Development Immersive at General Assembly New York in November 2015.
+<br>
 
 
 ### Wireframe
