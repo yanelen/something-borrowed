@@ -36,6 +36,6 @@ class CommentsController < ApplicationController
 
   def comment_params
     return params.require(:comment)
-      .permit(:user_id, :comment)
+      .permit(:user_id, :comment, :username, :created_at)
     end
 end

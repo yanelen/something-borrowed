@@ -72,8 +72,9 @@
               </td>
             </tr>
           </table>
-    			<div ng-repeat = "comment in item.comments" ><span class="sender">{{comment.user_id}}</span><span> </span><span>{{comment.comment}}</span></div>
+    			<div ng-repeat = "comment in item.comments" ><span class="sender">{{comment.username}}</span><span> </span><span>{{comment.comment}}</span>
     			<small class="time">{{comment.created_at}}</small>
+          </div>
           <hr>
         </div>
   		</div>
@@ -84,23 +85,28 @@
   		<div ng-show="item.borrower_id && item.user_id === mainCtrl.currentUser.user_id">
   			<p class="title">{{item.title}}</p>
   			<p class="description">{{item.description}}</p>
-        <table>
-          <tr>
-            <td>
-              <div class="user-message">
-                <%= image_tag 'user.png' %>
-              </div>
-            </td>
-            <td class="message">
-          		<form class="form-group">
-          			<input class="form-control message" type="text" placeholder="Write a message to borrower...">
-          		</form>
-            </td>
-          </tr>
-        </table>
-  			<div><span class="sender">Sender</span><span> message</span></div>
-  			<small class="time">time stamp</small>
-        <hr>
+<!-- comment starts -->
+        <div ng-controller = "CommentsController as CommentCtrl">
+          <table>
+            <tr>
+              <td>
+                <div class="user-message">
+                  <%= image_tag 'user.png' %>
+                </div>
+              </td>
+              <td class="message">
+            		<form ng-submit = "CommentCtrl.createComment()" class="form-group">
+            			<input class="form-control message" type="text" ng-model="CommentCtrl.newComment"placeholder="Write a message to lender...">
+            		</form>
+              </td>
+            </tr>
+          </table>
+    			<div ng-repeat = "comment in item.comments" ><span class="sender">{{comment.username}}</span><span> </span><span>{{comment.comment}}</span>
+    			<small class="time">{{comment.created_at}}</small>
+          </div>
+          <hr>
+        </div>
+<!-- comment ends -->
   		</div>
   	</section>
 

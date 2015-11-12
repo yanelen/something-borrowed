@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   before_action :require_current_user
 
-  def testangular
+  def home
     render '/testangular', layout: "angularlayout"
   end
 

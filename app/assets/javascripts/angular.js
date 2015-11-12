@@ -134,14 +134,14 @@ app.controller('CommentsController', ['$http', '$scope', function($http, $scope)
 
 	this.createComment = function(){
 			var authenticity_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-		console.log($scope);
+		console.log($scope.$parent.$parent.$parent.mainCtrl.currentUser.username);
 		$http.post('/posts/'+$scope.$parent.item.id+'/comments', {
 			authenticity_token: authenticity_token,
 			comment: {
 				post_id: $scope.$parent.item.id,
 				comment: this.newComment,
 				user_id: $scope.$parent.item.user_id,
-				user_name: $scope.$parent.item.id.user_name
+				username: $scope.$parent.$parent.$parent.mainCtrl.currentUser.username
 			}
 		}).success(function(data){
 			console.log(data);

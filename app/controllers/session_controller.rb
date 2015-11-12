@@ -12,10 +12,10 @@ class SessionController < ApplicationController
       session[:session_token] = token
       user.update(session_token: token)
 
-      redirect_to '/testangular'
+      redirect_to root_path
     else
       flash[:message] = "Username / Password combination does not exist!"
-      redirect_to root_path
+      redirect_to '/login'
     end
 
   end
@@ -23,7 +23,7 @@ class SessionController < ApplicationController
   def destroy
     log_out!
 
-    redirect_to root_path
+    redirect_to '/login'
   end
 
   def user_current
