@@ -123,9 +123,6 @@ itemCtrl.returnItem = function(item){
 });
 };
 
-
-
-
 }]);
 
 app.controller('CommentsController', ['$http', '$scope', function($http, $scope){
