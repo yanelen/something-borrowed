@@ -94,6 +94,7 @@ itemCtrl.borrowItem = function(item){
 	})
 };
 
+
 }]);
 
 })();
