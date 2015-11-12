@@ -108,25 +108,10 @@
         <p class="title">{{item.title}}</p>
         <p class="description">{{item.description}}</p>
         <div class="button">
-          <a ng-click="mainCtrl.toggleForm2(true)"  class="btn btn-small edit" data-toggle="collapse" data-target="#form2" href="#">Edit</a>
+          <button class="btn btn-small edit">Edit</button>
           <button class="btn btn-small">Delete</button>
         </div>
         <br>
-        <form ng-submit="itemCtrl.deleteItem()" id="form2" class="collapse">
-          <div class="add-post">
-            <div ng-click="mainCtrl.toggleForm2(false)" class="close" data-toggle="collapse" data-target="#form2">
-              &#10005;
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" required maxlength="70" value ="{{item.title}}"><br/>
-              <textarea class="form-control" rows="3" required maxlength="1000">{{item.description}}</textarea><br/>
-              <div class="button">
-                <input type="submit" value="Submit" class="btn btn-small">
-              </div>
-            </div>
-          </div>
-        </form>
-
         <hr>
   		</div>
   	</section>

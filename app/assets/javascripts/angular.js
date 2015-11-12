@@ -32,8 +32,6 @@ app.controller('MainController', ['$http', function($http){
 	mainCtrl.toggleForm = function(status){
 	};
 
-	mainCtrl.toggleForm2 = function(status){
-	};
 
 
 
