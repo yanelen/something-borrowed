@@ -268,9 +268,16 @@ header {
   width: 100%;
 }
 
-.sender {
+.borrower {
   font-weight: bold;
   font-size: 12px;
+  color: #77bf43;
+}
+
+.lender {
+  font-weight: bold;
+  font-size: 12px;
+  color: #fc6db2;
 }
 
 .time {
