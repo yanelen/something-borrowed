@@ -276,6 +276,7 @@ header {
 .time {
   color: #a3a3a3;
   font-size: 11px;
+  margin-bottom: 6px;
 }
 
 #map {

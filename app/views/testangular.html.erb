@@ -77,7 +77,7 @@
   		</div>
   	</section>
 
-  	<!--my leant items -->
+  	<!--my lent items -->
   	<section ng-repeat="item in itemCtrl.itemList | filter:searchText" ng-show="mainCtrl.filter === 'leantItems'">
   		<div ng-show="item.borrower_id && item.user_id === mainCtrl.currentUser.user_id">
   			<p class="title">{{item.title}}</p>
@@ -98,8 +98,8 @@
               </td>
             </tr>
           </table>
-    			<div ng-repeat = "comment in item.comments" ><span class="sender">{{comment.username}}</span><span> </span><span>{{comment.comment}}</span>
-    			<small class="time">{{comment.created_at}}</small>
+    			<div ng-repeat = "comment in item.comments" ><span class="sender">{{comment.username}}</span><span>{{comment.comment}}</span><br>
+          <div class="time">{{comment.created_at}}</div>
           </div>
           <hr>
         </div>
