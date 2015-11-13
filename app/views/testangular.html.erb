@@ -113,7 +113,7 @@
         <p class="title">{{item.title}}</p>
         <p class="description">{{item.description}}</p>
         <div class="button">
-          <button ng-click="itemCtrl.showEditForm(item.id)" class="btn btn-small edit" >Edit</button>
+          <button ng-click="itemCtrl.showEditForm(item.id)" class="btn btn-small" style="padding: 6px 22px 7px 22px;">Edit</button>
           <button ng-click="itemCtrl.deleteItem(item)" class="btn btn-small">Delete</button>
         </div>
         <form ng-submit="itemCtrl.editItem(item)" ng-show="itemCtrl.editFormStatus === item.id" class="editform">
