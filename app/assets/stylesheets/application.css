@@ -37,7 +37,7 @@ body {
 
 .btn:hover {
   background-color: #2797b0;
-  color: white;
+  color: #ffffff;
 }
 
 .jumbotron {
@@ -228,10 +228,12 @@ header {
   font-size: 12px;
   padding: 6px 14px 7px 14px;
   display: inline;
+  color: #ffffff;
 }
 
 .btn-small:hover {
   background-color: #dba92a;
+  color: #ffffff;
 }
 
 .edit {
