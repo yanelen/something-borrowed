@@ -191,9 +191,9 @@ header {
 .close {
   float:right;
   cursor:pointer;
-  font-size: 18px;
-  padding-bottom: 12px;
-  margin-right: -12px;
+  font-size: 16px;
+  margin-right: -17px;
+  margin-top: -6px;
 }
 
 .add-post {
@@ -279,11 +279,20 @@ header {
 #map {
   height: 200px;
   width: 100%;
+  margin-bottom: 12px;
 }
 
 .form-control:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
     -webkit-text-fill-color: #000000 !important;
+}
+
+.editform {
+  margin-top: 14px;
+}
+
+.form-add {
+  padding-top: 13px;
 }
 
 
