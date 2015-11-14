@@ -36,6 +36,7 @@ Requisites: an internet connection and a browser on a desktop, a tablet or a mob
 
 ### Technology
 
+Google map API<br>
 Ruby on Rails<br>
 ActiveRecord<br>
 PostgreSQL<br>
