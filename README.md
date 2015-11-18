@@ -45,7 +45,7 @@ Angular<br>
 jQuery<br>
 HTML<br>
 CSS<br>
-Illustrator<br><br>
+Illustrator<br>
 Photoshop<br>
 
 
