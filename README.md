@@ -45,8 +45,8 @@ Angular<br>
 jQuery<br>
 HTML<br>
 CSS<br>
-Photoshop<br>
 Illustrator<br><br>
+Photoshop<br>
 
 
 ### Developers Info
