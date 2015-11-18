@@ -46,7 +46,7 @@ jQuery<br>
 HTML<br>
 CSS<br>
 Illustrator<br>
-Photoshop<br>
+Photoshop<br><br>
 
 
 ### Developers Info
