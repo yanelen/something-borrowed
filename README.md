@@ -2,7 +2,7 @@
 
 Something Borrowed version 1.0 11/13/15
 
-The app is visible at: http://still-sea-2278.herokuapp.com
+The app is visible at: https://somethingborrowedny.herokuapp.com/
 <br><br>
 
 
